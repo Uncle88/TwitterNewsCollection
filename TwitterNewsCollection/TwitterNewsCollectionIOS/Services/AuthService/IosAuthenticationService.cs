@@ -1,8 +1,11 @@
 using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TwitterNewsCollection.Authentication;
 using UIKit;
 using Xamarin.Auth;
+using System.Net.Http.Headers;
+using TwitterNewsCollection.Models;
 
 namespace TwitterNewsCollectionIOS
 {
@@ -99,8 +102,7 @@ namespace TwitterNewsCollectionIOS
                                             }
                                             else
                                             {
-                                                string _data = t.Result.GetResponseText();
-                                                object obj = JsonConvert.DeserializeObject<object>(_data);
+                                                GetTwitterObjects(t);
                                             }
                                         });
                     return;
@@ -122,6 +124,13 @@ namespace TwitterNewsCollectionIOS
             var window = UIApplication.SharedApplication.KeyWindow;
             var vc = window.RootViewController;
             vc.PresentViewController(authView, true, null);
+        }
+
+        TwitterTricks GetTwitterObjects(Task<Response> t)
+        {
+            string _data = t.Result.GetResponseText();
+            TwitterTricks obj = JsonConvert.DeserializeObject<TwitterTricks>(_data);
+            return obj;
         }
     }
 

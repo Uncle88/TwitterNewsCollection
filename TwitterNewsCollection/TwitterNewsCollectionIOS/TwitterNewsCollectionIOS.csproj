@@ -137,6 +137,8 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\AuthService\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -152,11 +154,11 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="IosAuthenticationService.cs" />
     <Compile Include="Views\AuthView.cs" />
     <Compile Include="Views\AuthView.designer.cs">
       <DependentUpon>AuthView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\AuthService\IosAuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">
