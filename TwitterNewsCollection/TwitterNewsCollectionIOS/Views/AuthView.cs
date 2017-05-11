@@ -22,10 +22,10 @@ namespace TwitterNewsCollectionIOS.Views
         {
             base.ViewDidLoad();
             this.CreateBindingSet<AuthView, AuthViewModel>();
-            this.CreateBinding(authButton).To((AuthViewModel vm) => vm.AuthCommand).Apply();
-            authButton.TintColor = UIColor.Red;
-            authButton.BackgroundColor = UIColor.Cyan;
-            authButton.Layer.CornerRadius = 30;
+            //this.CreateBinding(authButton).To((AuthViewModel vm) => vm.AuthCommand).Apply();
+            //authButton.TintColor = UIColor.Red;
+            //authButton.BackgroundColor = UIColor.Cyan;
+            //authButton.Layer.CornerRadius = 30;
         }
     }
 }

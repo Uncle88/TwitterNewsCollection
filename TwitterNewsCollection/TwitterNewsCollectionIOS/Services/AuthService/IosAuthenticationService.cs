@@ -6,12 +6,12 @@ using UIKit;
 using Xamarin.Auth;
 using System.Net.Http.Headers;
 using TwitterNewsCollection.Models;
+using TwitterNewsCollection;
 
 namespace TwitterNewsCollectionIOS
 {
-    public class IosAuthenticationService : IAuthenticationService
+    public class IosAuthenticationService : Constants, IAuthenticationService
     {
-
         //public void LoginToTwitter()
         //{
         //    var auth = new OAuth1Authenticator(
@@ -21,8 +21,6 @@ namespace TwitterNewsCollectionIOS
         //        authorizeUrl: new Uri("https://api.twitter.com/oauth/authorize"),
         //        accessTokenUrl: new Uri("https://api.twitter.com/oauth/access_token"),
         //        callbackUrl: new Uri("http://app.home.com"));
-
-
         //    //var auth = new OAuth1Authenticator(
         //    //Consumer_KEY,
         //    // Consumer_SECRET,
@@ -30,9 +28,11 @@ namespace TwitterNewsCollectionIOS
         //    //new Uri(TWITTER_AUTH),
         //    //new Uri(TWITTER_ACCESSTOKEN_URL),
         //    //new Uri(TWITTER_CALLBACK_URL));
-
+        //requestTokenUrl: new Uri("https://api.twitter.com/oauth/request_token"),
+        //authorizeUrl: new Uri("https://api.twitter.com/oauth/authorize"),
+        //accessTokenUrl: new Uri("https://api.twitter.com/oauth/access_token"),
+        //callbackUrl: new Uri("https://mobile.twitter.com/home")
         //    auth.AllowCancel = true;
-
         //    auth.Completed += (s, eventArgs) =>
         //    {
         //        if (eventArgs.IsAuthenticated)
@@ -67,24 +67,20 @@ namespace TwitterNewsCollectionIOS
         //            return;
         //        }
         //    };
-
         //    var authView = (UIKit.UIViewController)auth.GetUI();
         //    var window = UIApplication.SharedApplication.KeyWindow;
         //    var vc = window.RootViewController;
         //    vc.PresentViewController(authView, true, null);
-
         //}
-
         public void LoginToTwitter()
         {
             var auth = new OAuth1Authenticator(
-                consumerKey: "ZYAaM25koQg2Jdkm1CrSPvCl4",
-                consumerSecret: "lgc4bXD3u7AYe9xgwbtgkTincbJR9Ed4oSTJ9H09bMf4RPa9FB",
-                requestTokenUrl: new Uri("https://api.twitter.com/oauth/request_token"), // the redirect URL for the service
-                authorizeUrl: new Uri("https://api.twitter.com/oauth/authorize"), // the auth URL for the service
-                accessTokenUrl: new Uri("https://api.twitter.com/oauth/access_token"),
-                callbackUrl: new Uri("https://mobile.twitter.com/home")
-            );
+                Consumer_KEY,
+                Consumer_SECRET,
+                new Uri(TWITTER_REQTOKEN_URL),
+                new Uri(TWITTER_AUTH),
+                new Uri(TWITTER_ACCESSTOKEN_URL),
+                new Uri(TWITTER_CALLBACK_URL));
 
             auth.Completed += (sender, eventArgs) =>
             {
@@ -133,6 +129,5 @@ namespace TwitterNewsCollectionIOS
             return obj;
         }
     }
-
 }
 
