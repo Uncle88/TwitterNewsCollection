@@ -5,13 +5,9 @@ using TwitterNewsCollection.Models;
 
 namespace TwitterNewsCollection.ViewModels
 {
-    public class ListViewModel : MvxViewModel<TwitterTricks>
+    public class ListViewModel : MvxViewModel<RootObject>
     {
-        public ListViewModel()
-        {
-        }
-
-        public override Task Initialize(TwitterTricks parameter)
+        public override Task Initialize(RootObject obj)
         {
             return null;
         }

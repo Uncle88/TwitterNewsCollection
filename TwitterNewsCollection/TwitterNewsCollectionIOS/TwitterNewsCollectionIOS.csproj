@@ -164,6 +164,7 @@
     <Compile Include="Views\ListView.designer.cs">
       <DependentUpon>ListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TwitterCollectionCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">

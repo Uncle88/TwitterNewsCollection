@@ -86,6 +86,8 @@ namespace TwitterNewsCollectionIOS
             {
                 if (eventArgs.IsAuthenticated)
                 {
+                    //"https://api.twitter.com/1.1/favorites/list.json"
+                    //"https://api.twitter.com/1.1/followers/list.json"
                     var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/account/verify_credentials.json"), null, eventArgs.Account, false);
                     request.GetResponseAsync().ContinueWith(t =>
                                         {
@@ -122,10 +124,10 @@ namespace TwitterNewsCollectionIOS
             vc.PresentViewController(authView, true, null);
         }
 
-        TwitterTricks GetTwitterObjects(Task<Response> t)
+        RootObject GetTwitterObjects(Task<Response> t)
         {
             string _data = t.Result.GetResponseText();
-            TwitterTricks obj = JsonConvert.DeserializeObject<TwitterTricks>(_data);
+            RootObject obj = JsonConvert.DeserializeObject<RootObject>(_data);
             return obj;
         }
     }

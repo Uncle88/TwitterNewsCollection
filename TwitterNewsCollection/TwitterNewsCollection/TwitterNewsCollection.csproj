@@ -33,8 +33,19 @@
     <Compile Include="ViewModels\AuthViewModel.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Models\TwitterTricks.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\RetweetedStatus.cs" />
+    <Compile Include="Models\Entities3.cs" />
+    <Compile Include="Models\Url.cs" />
+    <Compile Include="Models\UserMention2.cs" />
+    <Compile Include="Models\Hashtag2.cs" />
+    <Compile Include="Models\Entities2.cs" />
+    <Compile Include="Models\UserMention.cs" />
+    <Compile Include="Models\Hashtag.cs" />
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\Description.cs" />
+    <Compile Include="Models\RootObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">

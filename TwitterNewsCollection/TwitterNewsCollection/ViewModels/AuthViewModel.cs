@@ -14,17 +14,19 @@ namespace TwitterNewsCollection.ViewModels
     {
         private readonly IAuthenticationService _authServ;
         private readonly IMvxNavigationService _navigationService;
+        public RootObject obj;
 
         public AuthViewModel(IAuthenticationService authServ, IMvxNavigationService navigationService)
         {
             _authServ = authServ;
             _authServ.LoginToTwitter();
             _navigationService = navigationService;
+
         }
 
         public async Task PassParamToListViewModel()
         {
-            await _navigationService.Navigate<ListViewModel, TwitterTricks>(new TwitterTricks());
+            await _navigationService.Navigate<ListViewModel, RootObject>(obj);
             return;
         }
     }
