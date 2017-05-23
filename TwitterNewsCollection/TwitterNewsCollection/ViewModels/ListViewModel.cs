@@ -9,12 +9,30 @@ namespace TwitterNewsCollection.ViewModels
 {
     public class ListViewModel : MvxViewModel<RootObject>
     {
-        List<RootObject> _rootObj = new List<RootObject>();
+        public ListViewModel()
+        {
+            List<RootObject> _rootObj = new List<RootObject>()
+                {
+            new RootObject() { id = 545, name = "Ivan" },
+            new RootObject() { id= 68685 ,name = "Petr" },
+            new RootObject() {id = 567473, name = "Matvey" },
+            };
+        }
 
         public override Task Initialize(RootObject obj)
         {
-            return null;//ShowViewModel();
-            //return null;
+            return null;
+        }
+
+        private List<RootObject> _rootObj;
+        public List<RootObject> RootObj
+        {
+            get { return _rootObj; }
+            set
+            {
+                _rootObj = value;
+                RaisePropertyChanged(() => RootObj);
+            }
         }
     }
 }

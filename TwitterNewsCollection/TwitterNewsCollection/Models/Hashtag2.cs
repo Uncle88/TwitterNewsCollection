@@ -5,7 +5,6 @@ namespace TwitterNewsCollection.Models
 {
     public class Hashtag2
     {
-
     }
 
 }

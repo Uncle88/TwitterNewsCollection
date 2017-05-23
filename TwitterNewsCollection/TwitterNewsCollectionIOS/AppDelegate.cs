@@ -9,7 +9,7 @@ namespace TwitterNewsCollectionIOS
     [Register("AppDelegate")]
     public partial class AppDelegate : MvxApplicationDelegate
     {
-        UIWindow _window;
+        UIWindow _window { get; set; }
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {

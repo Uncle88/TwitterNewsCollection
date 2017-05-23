@@ -9,17 +9,17 @@ using System.CodeDom.Compiler;
 
 namespace TwitterNewsCollectionIOS.Views
 {
-	[Register ("ListView")]
-	partial class ListView
+	[Register ("CollectionView")]
+	partial class CollectionView
 	{
 		[Outlet]
-		UIKit.UICollectionView _twitterList { get; set; }
+		UIKit.UICollectionView _collectionView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (_twitterList != null) {
-				_twitterList.Dispose ();
-				_twitterList = null;
+			if (_collectionView != null) {
+				_collectionView.Dispose ();
+				_collectionView = null;
 			}
 		}
 	}

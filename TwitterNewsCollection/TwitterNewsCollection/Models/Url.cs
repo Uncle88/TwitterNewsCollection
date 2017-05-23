@@ -5,6 +5,5 @@ namespace TwitterNewsCollection.Models
 {
     public class Url
     {
-
     }
 }

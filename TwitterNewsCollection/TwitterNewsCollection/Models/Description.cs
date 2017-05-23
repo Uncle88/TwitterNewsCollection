@@ -5,6 +5,5 @@ namespace TwitterNewsCollection.Models
 {
     public class Description
     {
-        //public List<object> urls { get; set; }
     }
 }
