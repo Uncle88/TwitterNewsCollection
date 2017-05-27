@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
 namespace TwitterNewsCollection.Models
 {
-    public class Hashtag2
+    public class Url4
     {
     }
-
 }

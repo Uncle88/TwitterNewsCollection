@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace TwitterNewsCollection.Models
 {
-
-    public class Url
+    public class Description2
     {
-        public List<Url2> urls { get; set; }
+        public List<object> urls { get; set; }
     }
 }

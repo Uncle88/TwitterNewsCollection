@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-
 namespace TwitterNewsCollection.Models
 {
-    public class UserMention2
+    public class User2
     {
+        public Entities4 entities { get; set; }
     }
 }

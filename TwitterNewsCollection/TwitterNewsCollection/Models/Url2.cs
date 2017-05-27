@@ -1,7 +1,7 @@
 ﻿using System;
 namespace TwitterNewsCollection.Models
 {
-    public class UserMention
+    public class Url2
     {
     }
 }

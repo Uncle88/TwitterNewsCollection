@@ -34,18 +34,21 @@
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
-    <Compile Include="Models\Status.cs" />
-    <Compile Include="Models\RetweetedStatus.cs" />
-    <Compile Include="Models\Entities3.cs" />
-    <Compile Include="Models\Url.cs" />
-    <Compile Include="Models\UserMention2.cs" />
-    <Compile Include="Models\Hashtag2.cs" />
-    <Compile Include="Models\Entities2.cs" />
+    <Compile Include="Models\RootObject.cs" />
     <Compile Include="Models\UserMention.cs" />
-    <Compile Include="Models\Hashtag.cs" />
     <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\Description.cs" />
-    <Compile Include="Models\RootObject.cs" />
+    <Compile Include="Models\Url2.cs" />
+    <Compile Include="Models\Url.cs" />
+    <Compile Include="Models\Entities2.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Entities3.cs" />
+    <Compile Include="Models\Url4.cs" />
+    <Compile Include="Models\Url3.cs" />
+    <Compile Include="Models\Description2.cs" />
+    <Compile Include="Models\Entities4.cs" />
+    <Compile Include="Models\User2.cs" />
+    <Compile Include="Models\RetweetedStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">

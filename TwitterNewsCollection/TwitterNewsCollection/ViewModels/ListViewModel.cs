@@ -11,12 +11,12 @@ namespace TwitterNewsCollection.ViewModels
     {
         public ListViewModel()
         {
-            List<RootObject> _rootObj = new List<RootObject>()
-                {
-            new RootObject() { id = 545, name = "Ivan" },
-            new RootObject() { id= 68685 ,name = "Petr" },
-            new RootObject() {id = 567473, name = "Matvey" },
-            };
+            //List<RootObject> _rootObj = new List<RootObject>()
+            //    {
+            //new RootObject() { id = 545, name = "Ivan" },
+            //new RootObject() { id= 68685 ,name = "Petr" },
+            //new RootObject() {id = 567473, name = "Matvey" }
+            //};
         }
 
         public override Task Initialize(RootObject obj)
@@ -24,7 +24,7 @@ namespace TwitterNewsCollection.ViewModels
             return null;
         }
 
-        private List<RootObject> _rootObj;
+        private List<RootObject> _rootObj = null;
         public List<RootObject> RootObj
         {
             get { return _rootObj; }

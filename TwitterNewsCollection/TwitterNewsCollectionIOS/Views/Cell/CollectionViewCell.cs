@@ -24,11 +24,11 @@ namespace TwitterNewsCollectionIOS.Cell
 
              {
                  var set = this.CreateBindingSet<CollectionViewCell, RootObject>();
-                 set.Bind(idCell).To(vm => vm.id);
-                 set.Bind(nameCell).To(vm => vm.name);
-                 set.Bind(entitiesCell).To(vm => vm.entities);
-                 set.Bind(statusCell).To(vm => vm.status);
-                 set.Apply();
+                 //set.Bind(idCell).To(vm => vm.id);
+                 //set.Bind(nameCell).To(vm => vm.name);
+                 //set.Bind(entitiesCell).To(vm => vm.entities);
+                 //set.Bind(statusCell).To(vm => vm.status);
+                 //set.Apply();
              });
         }
     }
