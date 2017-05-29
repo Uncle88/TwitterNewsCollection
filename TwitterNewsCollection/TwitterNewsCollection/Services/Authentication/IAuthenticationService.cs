@@ -4,6 +4,6 @@ namespace TwitterNewsCollection.Authentication
     public interface IAuthenticationService
     {
         void LoginToTwitter();
-        event EventHandler LoginToTwitterCompleted;
+        event EventHandler ResponseFeedsCompleted;
     }
 }

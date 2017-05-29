@@ -6,14 +6,15 @@ using UIKit;
 using Xamarin.Auth;
 using TwitterNewsCollection.Models;
 using TwitterNewsCollection;
+using TwitterNewsCollection.Helpers;
 
 namespace TwitterNewsCollectionIOS
 {
     public class IosAuthenticationService : IAuthenticationService
     {
-        public event EventHandler LoginToTwitterCompleted;
+        public event EventHandler ResponseFeedsCompleted;
 
-        public void LoginToTwitter()
+        void IAuthenticationService.LoginToTwitter()
         {
             var auth = new OAuth1Authenticator(
                 Constants.Consumer_KEY,
@@ -43,6 +44,7 @@ namespace TwitterNewsCollectionIOS
                                             else
                                             {
                                                 GetTwitterObjects(t);
+                                                ResponseFeedsCompleted?.Invoke(this, new EventArgs());
                                             }
                                         });
                 }
@@ -65,11 +67,19 @@ namespace TwitterNewsCollectionIOS
             vc.PresentViewController(authView, true, null);
         }
 
-        RootObject GetTwitterObjects(Task<Response> t)
+        object GetTwitterObjects(Task<Response> t)
         {
             string _data = t.Result.GetResponseText();
-            RootObject obj = JsonConvert.DeserializeObject<RootObject>(_data);
-            return obj;
+            try
+            {
+                var obj = JsonConvert.DeserializeObject<object>(_data);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("===");
+                return null;
+            }
         }
     }
 }

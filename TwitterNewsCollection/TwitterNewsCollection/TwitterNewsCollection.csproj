@@ -34,21 +34,8 @@
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
-    <Compile Include="Models\RootObject.cs" />
-    <Compile Include="Models\UserMention.cs" />
-    <Compile Include="Models\Entities.cs" />
-    <Compile Include="Models\Description.cs" />
-    <Compile Include="Models\Url2.cs" />
-    <Compile Include="Models\Url.cs" />
-    <Compile Include="Models\Entities2.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Entities3.cs" />
-    <Compile Include="Models\Url4.cs" />
-    <Compile Include="Models\Url3.cs" />
-    <Compile Include="Models\Description2.cs" />
-    <Compile Include="Models\Entities4.cs" />
-    <Compile Include="Models\User2.cs" />
-    <Compile Include="Models\RetweetedStatus.cs" />
+    <Compile Include="Helpers\TwitterEventArgs.cs" />
+    <Compile Include="Models\EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
@@ -69,20 +56,20 @@
     <Reference Include="Validation">
       <HintPath>..\packages\Validation.2.4.15\lib\portable-net45+win8+wp8+wpa81\Validation.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Platform">
-      <HintPath>..\packages\MvvmCross.Platform.5.0.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Core">
-      <HintPath>..\packages\MvvmCross.Core.5.0.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding">
-      <HintPath>..\packages\MvvmCross.Binding.5.0.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Binding.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Localization">
-      <HintPath>..\packages\MvvmCross.Binding.5.0.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Localization.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Auth">
       <HintPath>..\packages\Xamarin.Auth.1.5.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.5.0.1\lib\portable-net45+win+wpa81+wp80\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.5.0.1\lib\portable-net45+win+wpa81+wp80\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.5.0.1\lib\portable-net45+win+wpa81+wp80\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Binding.5.0.1\lib\portable-net45+win+wpa81+wp80\MvvmCross.Localization.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +80,7 @@
     <Folder Include="Services\Authentication\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

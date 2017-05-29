@@ -1,11 +1,9 @@
-﻿using System;
-using MvvmCross.Binding.BindingContext;
+﻿using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Views;
 using TwitterNewsCollection.ViewModels;
-using TwitterNewsCollectionIOS.Cell;
-using UIKit;
+using TwitterNewsCollectionIOS.Views.Cell;
 
 namespace TwitterNewsCollectionIOS.Views
 {
@@ -24,8 +22,8 @@ namespace TwitterNewsCollectionIOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            _collectionView.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
-            var sourse = new MvxCollectionViewSource(_collectionView, CollectionViewCell.Key);
+            _collectionView.RegisterNibForCell(TwitterCollectionViewCell.Nib, TwitterCollectionViewCell.Key);
+            var sourse = new MvxCollectionViewSource(_collectionView, TwitterCollectionViewCell.Key);
             _collectionView.Source = sourse;
             _collectionView.Delegate = new ListDelegateFlowLayout();
             var set = this.CreateBindingSet<CollectionView, ListViewModel>();

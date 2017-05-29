@@ -4,27 +4,20 @@ using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using TwitterNewsCollection.Models;
 using MvvmCross.Binding.BindingContext;
+using System.Diagnostics.Contracts;
 
 namespace TwitterNewsCollection.ViewModels
 {
     public class ListViewModel : MvxViewModel<RootObject>
     {
-        public ListViewModel()
-        {
-            //List<RootObject> _rootObj = new List<RootObject>()
-            //    {
-            //new RootObject() { id = 545, name = "Ivan" },
-            //new RootObject() { id= 68685 ,name = "Petr" },
-            //new RootObject() {id = 567473, name = "Matvey" }
-            //};
-        }
-
         public override Task Initialize(RootObject obj)
         {
+            Contract.Ensures(Contract.Result<Task>() != null);
+            //return new List<RootObject> ;
             return null;
         }
 
-        private List<RootObject> _rootObj = null;
+        private List<RootObject> _rootObj;
         public List<RootObject> RootObj
         {
             get { return _rootObj; }
