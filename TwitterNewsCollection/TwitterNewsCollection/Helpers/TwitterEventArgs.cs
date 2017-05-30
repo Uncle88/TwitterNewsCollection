@@ -6,9 +6,25 @@ namespace TwitterNewsCollection.Helpers
 {
     public class TwitterEventArgs : EventArgs
     {
-        public TwitterEventArgs(object sender, EventArgs e)
+		public TwitterEventArgs()
         {
             List<RootObject> _rootObj = new List<RootObject>();
+        }
+
+        public List<RootObject> _rootObj;
+		//public List<RootObject> RootObj
+		//{
+		//	get { return _rootObj; }
+		//	set
+		//	{
+		//		_rootObj = value;
+		//		RaisePropertyChanged(() => RootObj);
+		//	}
+		//}
+
+        public void ReceivingDataFromAnEvent()
+        {
+            
         }
     }
 }

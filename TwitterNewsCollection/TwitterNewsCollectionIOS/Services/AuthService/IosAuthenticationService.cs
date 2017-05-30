@@ -43,8 +43,9 @@ namespace TwitterNewsCollectionIOS
                                             }
                                             else
                                             {
-                                                GetTwitterObjects(t);
-                                                ResponseFeedsCompleted?.Invoke(this, new EventArgs());
+                                                //GetTwitterObjects(t);
+                                                   OnEventArgs(GetTwitterObjects(t));
+                                                //ResponseFeedsCompleted?.Invoke(this, new EventArgs());
                                             }
                                         });
                 }
@@ -67,19 +68,31 @@ namespace TwitterNewsCollectionIOS
             vc.PresentViewController(authView, true, null);
         }
 
-        object GetTwitterObjects(Task<Response> t)
+        private void OnEventArgs(string someData)
+        {
+            TwitterEventArgs twEventArgs = new TwitterEventArgs();
+			if (ResponseFeedsCompleted != null)
+			{
+                twEventArgs._rootObj = (System.Collections.Generic.List<TwitterNewsCollection.Models.RootObject>)JsonConvert.DeserializeObject<object>(someData); ;
+				ResponseFeedsCompleted?.Invoke(this, twEventArgs);
+			}
+        }
+
+        string GetTwitterObjects(Task<Response> t)
         {
             string _data = t.Result.GetResponseText();
-            try
-            {
-                var obj = JsonConvert.DeserializeObject<object>(_data);
-                return obj;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("===");
-                return null;
-            }
+            return _data;
+
+            //try
+            //{
+            //    var obj = JsonConvert.DeserializeObject<object>(_data);
+            //    return obj;
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("===");
+            //    return null;
+            //}
         }
     }
 }
