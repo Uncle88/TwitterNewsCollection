@@ -21,7 +21,6 @@ namespace TwitterNewsCollection.ViewModels
             _authServ = authServ;
             _authServ.LoginToTwitter();
             _navigationService = navigationService;
-
         }
 
         public async Task PassParamToListViewModel()

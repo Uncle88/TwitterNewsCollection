@@ -31,7 +31,7 @@ namespace TwitterNewsCollectionIOS
                     //"https://api.twitter.com/1.1/favorites/list.json"---https://api.twitter.com/1.1/account/verify_credentials.json
                     //https://api.twitter.com/1.1/statuses/home_timeline.json
                     //https://api.twitter.com/1.1/statuses/retweets/857636306666520577.json
-                    var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json"), null, eventArgs.Account, false);
+                    var request = new OAuth1Request("GET", new Uri(/*"https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json"*/"https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account, false);
                     request.GetResponseAsync().ContinueWith(t =>
                                         {
                                             if (t.IsFaulted)
@@ -43,7 +43,7 @@ namespace TwitterNewsCollectionIOS
                                             }
                                             else
                                             {
-                                                //GetTwitterObjects(t);
+												//GetTwitterObjects(t);
                                                    OnEventArgs(GetTwitterObjects(t));
                                                 //ResponseFeedsCompleted?.Invoke(this, new EventArgs());
                                             }
@@ -71,7 +71,7 @@ namespace TwitterNewsCollectionIOS
         private void OnEventArgs(string someData)
         {
             TwitterEventArgs twEventArgs = new TwitterEventArgs();
-			if (ResponseFeedsCompleted != null)
+			//if (ResponseFeedsCompleted != null)
 			{
                 twEventArgs._rootObj = (System.Collections.Generic.List<TwitterNewsCollection.Models.RootObject>)JsonConvert.DeserializeObject<object>(someData); ;
 				ResponseFeedsCompleted?.Invoke(this, twEventArgs);
@@ -82,7 +82,6 @@ namespace TwitterNewsCollectionIOS
         {
             string _data = t.Result.GetResponseText();
             return _data;
-
             //try
             //{
             //    var obj = JsonConvert.DeserializeObject<object>(_data);

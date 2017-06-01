@@ -12,19 +12,6 @@ namespace TwitterNewsCollection.Helpers
         }
 
         public List<RootObject> _rootObj;
-		//public List<RootObject> RootObj
-		//{
-		//	get { return _rootObj; }
-		//	set
-		//	{
-		//		_rootObj = value;
-		//		RaisePropertyChanged(() => RootObj);
-		//	}
-		//}
 
-        public void ReceivingDataFromAnEvent()
-        {
-            
-        }
     }
 }
