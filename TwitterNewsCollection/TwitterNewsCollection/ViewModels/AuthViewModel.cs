@@ -23,10 +23,16 @@ namespace TwitterNewsCollection.ViewModels
             _navigationService = navigationService;
         }
 
-        public async Task PassParamToListViewModel()
+        void Initialize (RootObject _rootObj)
         {
-            await _navigationService.Navigate<ListViewModel, RootObject>(obj);
-            return;
+            obj = _rootObj;
+        }
+
+        public override void Appearing()//Task PassParamToListViewModel()
+        {
+            _navigationService.Navigate<ListViewModel, RootObject>(obj);
+            ShowViewModel<ListViewModel>();
+            //return;
         }
     }
 }
