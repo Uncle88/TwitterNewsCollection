@@ -33,46 +33,80 @@ namespace TwitterNewsCollectionIOS
             vc.PresentViewController(authView, true, null);
         }
 
-        private void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
-        {
-            if (eventArgs.IsAuthenticated)
+            private void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
             {
-                //"https://api.twitter.com/1.1/favorites/list.json"---https://api.twitter.com/1.1/account/verify_credentials.json
-                //https://api.twitter.com/1.1/statuses/home_timeline.json
-                //https://api.twitter.com/1.1/statuses/retweets/857636306666520577.json
-                var request = new OAuth1Request("GET", new Uri(/*"https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json"*/"https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account, false);
-                request.GetResponseAsync().ContinueWith( t => ResponceTwitterFeeds(t));                                
-            }
-
-            else
+			if (eventArgs.IsAuthenticated)
+             {
+				var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/account/verify_credentials.json"), null, eventArgs.Account, false);
+				request.GetResponseAsync().ContinueWith(t =>
+               {
+					if (t.IsFaulted)
+					{
+						UIAlertView alert = new UIAlertView();
+						alert.Message = t.Exception.InnerException.Message;
+						alert.Show();
+						return;
+					}
+				   else
+                   {
+						string _data = t.Result.GetResponseText();
+					    object obj = JsonConvert.DeserializeObject<object>(_data);
+				   }
+				});
+				return;
+			}
+		else
             {
-                UIAlertView alert = new UIAlertView()
+				UIAlertView alert = new UIAlertView()
                 {
-                    Title = "Error",
+					Title = "Error",
                     Message = "Not Authenticated"
                 };
-                alert.AddButton("OK");
-                alert.Show();
-                return;
-            }
-        }
+				alert.AddButton("OK");
+				alert.Show();
+				return;
+			}
+            
 
-       public async Task ResponceTwitterFeeds(Task<Response> t)
+
+                //if (eventArgs.IsAuthenticated)
+                //{
+                //    //"https://api.twitter.com/1.1/favorites/list.json"---https://api.twitter.com/1.1/account/verify_credentials.json
+                //    //https://api.twitter.com/1.1/statuses/home_timeline.json
+                //    //https://api.twitter.com/1.1/statuses/retweets/857636306666520577.json
+                //    var request = new OAuth1Request("GET", new Uri(/*"https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json"*/"https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account, false);
+                //    request.GetResponseAsync().ContinueWith( t => ResponceTwitterFeeds(t));                                
+                //}
+
+                //else
+                //{
+                //    UIAlertView alert = new UIAlertView()
+                //    {
+                //        Title = "Error",
+                //        Message = "Not Authenticated"
+                //    };
+                //    alert.AddButton("OK");
+                //    alert.Show();
+                //    return;
+                //}
+            }
+
+           public async Task ResponceTwitterFeeds(Task<Response> t)
+            {
+        if (t.IsFaulted)
         {
-				if (t.IsFaulted)
-				{
-					UIAlertView alert = new UIAlertView();
-                  	alert.Message = t.Exception.InnerException.Message;
-                   	alert.Show();
-                return ;
-				}
-				else
-				{
-					var response = await t;
-					var responseStringData = response.GetResponseText();
-					OnEventArgs(responseStringData);
-                return ;
-				}
+        	UIAlertView alert = new UIAlertView();
+                      	alert.Message = t.Exception.InnerException.Message;
+                       	alert.Show();
+                    return ;
+        }
+        else
+        {
+        	var response = await t;
+        	var responseStringData = response.GetResponseText();
+        	OnEventArgs(responseStringData);
+                    return ;
+        }
         }
 
         private void OnEventArgs(string someData)
