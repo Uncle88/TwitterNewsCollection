@@ -147,7 +147,7 @@
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Views\AuthView.xib" />
     <InterfaceDefinition Include="Views\CollectionView.xib" />
-    <InterfaceDefinition Include="Views\Cell\MyCollectionViewCell.xib" />
+    <InterfaceDefinition Include="Views\Cell\CollectionViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -168,9 +168,9 @@
       <DependentUpon>CollectionView.cs</DependentUpon>
     </Compile>
     <Compile Include="ListDelegateFlowLayout.cs" />
-    <Compile Include="Views\Cell\MyCollectionViewCell.cs" />
-    <Compile Include="Views\Cell\MyCollectionViewCell.designer.cs">
-      <DependentUpon>MyCollectionViewCell.cs</DependentUpon>
+    <Compile Include="Views\Cell\CollectionViewCell.cs" />
+    <Compile Include="Views\Cell\CollectionViewCell.designer.cs">
+      <DependentUpon>CollectionViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

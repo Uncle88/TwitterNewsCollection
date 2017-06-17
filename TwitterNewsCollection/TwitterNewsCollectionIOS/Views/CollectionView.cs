@@ -22,8 +22,8 @@ namespace TwitterNewsCollectionIOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            _collectionView.RegisterNibForCell(MyCollectionViewCell.Nib, MyCollectionViewCell.Key);
-            var sourse = new MvxCollectionViewSource(_collectionView, MyCollectionViewCell.Key);
+            _collectionView.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
+            var sourse = new MvxCollectionViewSource(_collectionView, CollectionViewCell.Key);
             _collectionView.Source = sourse;
             _collectionView.Delegate = new ListDelegateFlowLayout();
             var set = this.CreateBindingSet<CollectionView, ListViewModel>();

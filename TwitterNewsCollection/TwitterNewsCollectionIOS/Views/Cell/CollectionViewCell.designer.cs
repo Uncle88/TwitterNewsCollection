@@ -9,33 +9,41 @@ using System.CodeDom.Compiler;
 
 namespace TwitterNewsCollectionIOS.Views.Cell
 {
-	[Register ("MyCollectionViewCell")]
-	partial class MyCollectionViewCell
+	[Register ("CollectionViewCell")]
+	partial class CollectionViewCell
 	{
 		[Outlet]
-		UIKit.UILabel _created_atCell { get; set; }
+		UIKit.UILabel _idCell { get; set; }
 
 		[Outlet]
-		UIKit.UILabel _retweetCell { get; set; }
+		UIKit.UILabel _retweetedCell { get; set; }
+
+		[Outlet]
+		UIKit.UILabel _sourseCell { get; set; }
 
 		[Outlet]
 		UIKit.UILabel _textCell { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (_idCell != null) {
+				_idCell.Dispose ();
+				_idCell = null;
+			}
+
+			if (_retweetedCell != null) {
+				_retweetedCell.Dispose ();
+				_retweetedCell = null;
+			}
+
 			if (_textCell != null) {
 				_textCell.Dispose ();
 				_textCell = null;
 			}
 
-			if (_retweetCell != null) {
-				_retweetCell.Dispose ();
-				_retweetCell = null;
-			}
-
-			if (_created_atCell != null) {
-				_created_atCell.Dispose ();
-				_created_atCell = null;
+			if (_sourseCell != null) {
+				_sourseCell.Dispose ();
+				_sourseCell = null;
 			}
 		}
 	}
