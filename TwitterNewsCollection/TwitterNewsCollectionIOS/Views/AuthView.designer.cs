@@ -17,10 +17,6 @@ namespace TwitterNewsCollectionIOS.Views
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (authButton != null) {
-				authButton.Dispose ();
-				authButton = null;
-			}
 		}
 	}
 }

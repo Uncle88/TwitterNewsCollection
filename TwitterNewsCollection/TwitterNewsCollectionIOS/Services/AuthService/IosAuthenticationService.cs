@@ -8,14 +8,16 @@ using TwitterNewsCollection.Models;
 using TwitterNewsCollection;
 using TwitterNewsCollection.Helpers;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TwitterNewsCollectionIOS
 {
     public class IosAuthenticationService : IAuthenticationService
     {
-        public event EventHandler ResponseFeedsCompleted;
+        public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
+        private UIViewController AuthView;
 
-        void IAuthenticationService.LoginToTwitter()
+        public void LoginToTwitter()
         {
             var auth = new OAuth1Authenticator(
                 Constants.Consumer_KEY,
@@ -27,48 +29,58 @@ namespace TwitterNewsCollectionIOS
 
             auth.Completed += OnAuthCompleted;
 
-            var authView = (UIKit.UIViewController)auth.GetUI();
+           AuthView = (UIKit.UIViewController)auth.GetUI();
             var window = UIApplication.SharedApplication.KeyWindow;
             var vc = window.RootViewController;
-            vc.PresentViewController(authView, true, null);
+            vc.PresentViewController(AuthView, true, null);
         }
 
-            private void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
+        private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
+        {
+            AuthView.DismissViewController(true, null);
+            if (eventArgs.IsAuthenticated)
             {
-			if (eventArgs.IsAuthenticated)
-             {
-				var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/account/verify_credentials.json"), null, eventArgs.Account, false);
-				request.GetResponseAsync().ContinueWith(t =>
-               {
-					if (t.IsFaulted)
-					{
-						UIAlertView alert = new UIAlertView();
-						alert.Message = t.Exception.InnerException.Message;
-						alert.Show();
-						return;
-					}
-				   else
-                   {
-						string _data = t.Result.GetResponseText();
-					    object obj = JsonConvert.DeserializeObject<object>(_data);
-				   }
-				});
-				return;
-			}
-		else
-            {
-				UIAlertView alert = new UIAlertView()
+                var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account);
+                var response = await request.GetResponseAsync();
+                if (response != null)
                 {
-					Title = "Error",
-                    Message = "Not Authenticated"
-                };
-				alert.AddButton("OK");
-				alert.Show();
-				return;
-			}
-            
-
-
+                    string _data = response.GetResponseText();
+                    var myObj = (RootObject[])JsonConvert.DeserializeObject(_data, typeof(RootObject[]));
+					TwitterEventArgs twEventArgs = new TwitterEventArgs(myObj.ToList());
+					ResponseFeedsCompleted?.Invoke(this, twEventArgs);
+				}
+            }
+        }
+    }
+}
+   //             //.ContinueWith(t  =>
+   //            {
+			//		if (t.IsFaulted)
+			//		{
+			//			UIAlertView alert = new UIAlertView();
+			//			alert.Message = t.Exception.InnerException.Message;
+			//			alert.Show();
+			//			return;
+			//		}
+			//	   else
+   //                {
+			//			string _data = t.Result.GetResponseText();
+			//		    object obj = JsonConvert.DeserializeObject<object>(_data);
+			//	   }
+			//	});
+   //             return ;//_authResponse;
+			//}
+		  // else
+    //          {
+				//UIAlertView alert = new UIAlertView()
+    //            {
+				//	Title = "Error",
+    //                Message = "Not Authenticated"
+    //            };
+				//alert.AddButton("OK");
+				//alert.Show();
+     //           return ;//null;
+			  //}
                 //if (eventArgs.IsAuthenticated)
                 //{
                 //    //"https://api.twitter.com/1.1/favorites/list.json"---https://api.twitter.com/1.1/account/verify_credentials.json
@@ -77,7 +89,6 @@ namespace TwitterNewsCollectionIOS
                 //    var request = new OAuth1Request("GET", new Uri(/*"https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json"*/"https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account, false);
                 //    request.GetResponseAsync().ContinueWith( t => ResponceTwitterFeeds(t));                                
                 //}
-
                 //else
                 //{
                 //    UIAlertView alert = new UIAlertView()
@@ -89,32 +100,30 @@ namespace TwitterNewsCollectionIOS
                 //    alert.Show();
                 //    return;
                 //}
-            }
+        
+        //   public async Task ResponceTwitterFeeds(Task<Response> t)
+        //    {
+        //if (t.IsFaulted)
+        //{
+        //	UIAlertView alert = new UIAlertView();
+        //              	alert.Message = t.Exception.InnerException.Message;
+        //               	alert.Show();
+        //            return ;
+        //}
+        //else
+        //{
+        //	var response = await t;
+        //	var responseStringData = response.GetResponseText();
+        //	OnEventArgs(responseStringData);
+        //            return ;
+        //}
+        //}
+        //private void OnEventArgs(string someData)
+        //{
+        //    var twitObjects = (List<RootObject>)JsonConvert.DeserializeObject<object>(someData); ;
+        //    TwitterEventArgs twEventArgs = new TwitterEventArgs(twitObjects);
+        //    ResponseFeedsCompleted?.Invoke(this, twEventArgs);
+        //}
+    
 
-           public async Task ResponceTwitterFeeds(Task<Response> t)
-            {
-        if (t.IsFaulted)
-        {
-        	UIAlertView alert = new UIAlertView();
-                      	alert.Message = t.Exception.InnerException.Message;
-                       	alert.Show();
-                    return ;
-        }
-        else
-        {
-        	var response = await t;
-        	var responseStringData = response.GetResponseText();
-        	OnEventArgs(responseStringData);
-                    return ;
-        }
-        }
-
-        private void OnEventArgs(string someData)
-        {
-            var twitObjects = (List<RootObject>)JsonConvert.DeserializeObject<object>(someData); ;
-            TwitterEventArgs twEventArgs = new TwitterEventArgs(twitObjects);
-            ResponseFeedsCompleted?.Invoke(this, twEventArgs);
-        }
-    }
-}
 

@@ -8,30 +8,14 @@ using System.Diagnostics.Contracts;
 
 namespace TwitterNewsCollection.ViewModels
 {
-    public class ListViewModel : MvxViewModel<RootObject>
+    public class ListViewModel : MvxViewModel<List<RootObject>>
     {
-        public override Task Initialize(RootObject obj)
-        { return null; }
+        public List<RootObject> RootObj { get; private set; }
 
-        public ListViewModel()
+        public override Task Initialize(List<RootObject> parameter)
         {
-			_rootObj = new List<RootObject>
-            {
-                    new RootObject() { text = "Ahtung",  retweet_count = 2 , created_at = "today"},
-                    new RootObject() { text = "Ahtung2", retweet_count = 46 , created_at="tonight"},
-                    new RootObject() { text = "Ahtung3", retweet_count = 132 , created_at="yesterday"},
-             };
+            RootObj = parameter;
+            return null;
         }
-
-		public List<RootObject> _rootObj;
-		public List<RootObject> RootObj
-		{
-		  get { return _rootObj; }
-		  set
-		  {
-		      _rootObj = value;
-		      RaisePropertyChanged(() => RootObj);
-		  }
-		}
-	}
+    }
 }

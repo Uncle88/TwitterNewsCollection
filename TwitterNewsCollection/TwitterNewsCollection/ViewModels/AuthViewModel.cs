@@ -7,6 +7,8 @@ using TwitterNewsCollection.Authentication;
 using System.Threading.Tasks;
 using MvvmCross.Core.Navigation;
 using TwitterNewsCollection.Models;
+using TwitterNewsCollection.Helpers;
+using System.Collections.Generic;
 
 namespace TwitterNewsCollection.ViewModels
 {
@@ -14,25 +16,19 @@ namespace TwitterNewsCollection.ViewModels
     {
         private readonly IAuthenticationService _authServ;
         private readonly IMvxNavigationService _navigationService;
-        public RootObject obj;
 
         public AuthViewModel(IAuthenticationService authServ, IMvxNavigationService navigationService)
         {
             _authServ = authServ;
+            _authServ.ResponseFeedsCompleted += _authServ_ResponseFeedsCompleted;
             _authServ.LoginToTwitter();
             _navigationService = navigationService;
         }
 
-        void Initialize (RootObject _rootObj)
+        void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)
         {
-            obj = _rootObj;
-        }
-
-        public override void Appearing()//Task PassParamToListViewModel()
-        {
-            _navigationService.Navigate<ListViewModel, RootObject>(obj);
-            ShowViewModel<ListViewModel>();
-            //return;
+            var a = e.TwitterObjects;
+            _navigationService.Navigate<ListViewModel, List<RootObject>>(e.TwitterObjects);
         }
     }
 }

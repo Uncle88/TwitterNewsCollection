@@ -23,9 +23,9 @@ namespace TwitterNewsCollectionIOS.Views.Cell
             this.DelayBind(() =>
             {
                 var set = this.CreateBindingSet<MyCollectionViewCell, RootObject>();
-                set.Bind(_textCell).To(vm => vm.text);
-                set.Bind(_retweetCell).To(vm => vm.retweet_count);
-                set.Bind(_created_atCell).To(vm => vm.created_at);
+                //set.Bind(_textCell).To(vm => vm.text);
+                //set.Bind(_retweetCell).To(vm => vm.retweet_count);
+                //set.Bind(_created_atCell).To(vm => vm.created_at);
                 set.Apply();
             });
         }
