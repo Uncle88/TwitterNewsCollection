@@ -24,8 +24,8 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 			{
 				var set = this.CreateBindingSet<CollectionViewCell, RootObject>();
 				set.Bind(_textCell).To(vm => vm.text);
-                set.Bind(_idCell).To(vm => vm.id);
-                set.Bind(_sourseCell).To(vm => vm.source);
+                //set.Bind(_idCell).To(vm => vm.id);
+                //set.Bind(_sourseCell).To(vm => vm.source);
 				set.Apply();
 			});
 		}

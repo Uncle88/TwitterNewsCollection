@@ -9,7 +9,7 @@ namespace TwitterNewsCollectionIOS
     {
         public override CGSize GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
         {
-            return new CGSize(350, 70);
+            return new CGSize(350, 40);
         }
     }
 }

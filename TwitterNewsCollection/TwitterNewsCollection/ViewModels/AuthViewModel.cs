@@ -27,7 +27,7 @@ namespace TwitterNewsCollection.ViewModels
 
         void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)
         {
-            var a = e.TwitterObjects;
+            //var a = e.TwitterObjects;
             _navigationService.Navigate<ListViewModel, List<RootObject>>(e.TwitterObjects);
         }
     }
