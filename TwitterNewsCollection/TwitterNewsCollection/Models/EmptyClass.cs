@@ -195,7 +195,6 @@ namespace TwitterNewsCollection.Models
 		public string source { get; set; }
 		public User user { get; set; }
 		public RetweetedStatus retweeted_status { get; set; }
-		public bool retweeted { get; set; }
 		public ExtendedEntities2 extended_entities { get; set; }
 	}
 

@@ -16,9 +16,6 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 		UIKit.UILabel _idCell { get; set; }
 
 		[Outlet]
-		UIKit.UILabel _retweetedCell { get; set; }
-
-		[Outlet]
 		UIKit.UILabel _sourseCell { get; set; }
 
 		[Outlet]
@@ -31,19 +28,14 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 				_idCell = null;
 			}
 
-			if (_retweetedCell != null) {
-				_retweetedCell.Dispose ();
-				_retweetedCell = null;
+			if (_sourseCell != null) {
+				_sourseCell.Dispose ();
+				_sourseCell = null;
 			}
 
 			if (_textCell != null) {
 				_textCell.Dispose ();
 				_textCell = null;
-			}
-
-			if (_sourseCell != null) {
-				_sourseCell.Dispose ();
-				_sourseCell = null;
 			}
 		}
 	}
