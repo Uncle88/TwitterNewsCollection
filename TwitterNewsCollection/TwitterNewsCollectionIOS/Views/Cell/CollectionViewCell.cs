@@ -28,6 +28,8 @@ namespace TwitterNewsCollectionIOS.Views.Cell
                 //set.Bind(_sourseCell).To(vm => vm.source);
 				set.Apply();
 			});
+
+
 		}
 	}
 }

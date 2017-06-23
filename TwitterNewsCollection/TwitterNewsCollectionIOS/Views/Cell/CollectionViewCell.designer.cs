@@ -13,26 +13,10 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 	partial class CollectionViewCell
 	{
 		[Outlet]
-		UIKit.UILabel _idCell { get; set; }
-
-		[Outlet]
-		UIKit.UILabel _sourseCell { get; set; }
-
-		[Outlet]
 		UIKit.UILabel _textCell { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (_idCell != null) {
-				_idCell.Dispose ();
-				_idCell = null;
-			}
-
-			if (_sourseCell != null) {
-				_sourseCell.Dispose ();
-				_sourseCell = null;
-			}
-
 			if (_textCell != null) {
 				_textCell.Dispose ();
 				_textCell = null;

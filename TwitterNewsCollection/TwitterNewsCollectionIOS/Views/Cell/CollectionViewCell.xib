@@ -18,15 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="370" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQs-ZX-2Ys">
-                        <rect key="frame" x="20" y="22" width="330" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQs-ZX-2Ys">
+                        <rect key="frame" x="2" y="2" width="366" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="LQs-ZX-2Ys" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="2" id="Oev-iy-mf6"/>
+                <constraint firstAttribute="bottom" secondItem="LQs-ZX-2Ys" secondAttribute="bottom" constant="2" id="fb0-Fl-aWH"/>
+                <constraint firstAttribute="trailing" secondItem="LQs-ZX-2Ys" secondAttribute="trailing" constant="2" id="unf-Ld-RyZ"/>
+                <constraint firstItem="LQs-ZX-2Ys" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="2" id="zoo-pt-fmV"/>
+            </constraints>
             <size key="customSize" width="370" height="64"/>
             <connections>
                 <outlet property="_textCell" destination="LQs-ZX-2Ys" id="siQ-TV-Dda"/>
