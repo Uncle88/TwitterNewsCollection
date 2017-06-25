@@ -116,16 +116,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\layout\CollectionView.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">
