@@ -17,7 +17,7 @@ namespace TwitterNewsCollection.ViewModels
 			_authServ.LoginToTwitter();
         }
 
-        private void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)
+        private void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)//rename
         {
             TwitterFeeds = e.TwitterObjects;
             RaisePropertyChanged(nameof(TwitterFeeds));

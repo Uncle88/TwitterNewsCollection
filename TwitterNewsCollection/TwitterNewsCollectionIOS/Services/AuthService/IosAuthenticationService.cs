@@ -50,17 +50,24 @@ namespace TwitterNewsCollectionIOS
                     ResponseFeedsCompleted?.Invoke(this, twEventArgs);
                 }
                 else
-                {
-                    UIAlertView alert = new UIAlertView()
-                    {
-                        Title = "Error",
-                        Message = "Not Authenticated"
-                    };
-                    alert.AddButton("OK");
-                    alert.Show();
-                    return;
-                }
-            }
+				{
+					UIAlertView alert = new UIAlertView();
+                    alert.Message = "response not received";
+					alert.Show();
+					return;
+				}
+			}
+			else
+			{
+				UIAlertView alert = new UIAlertView()
+				{
+					Title = "Error",
+					Message = "Not Authenticated"
+				};
+				alert.AddButton("OK");
+				alert.Show();
+				return;
+			}
         }
     }
 }

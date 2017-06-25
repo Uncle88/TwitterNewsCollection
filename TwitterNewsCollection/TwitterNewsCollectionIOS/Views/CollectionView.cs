@@ -32,7 +32,7 @@ namespace TwitterNewsCollectionIOS.Views
             set.Apply();
         }
 
-        public override void DidReceiveMemoryWarning()
+        public override void DidReceiveMemoryWarning()//is there reason to invoke this method?
         {
             base.DidReceiveMemoryWarning();
         }
