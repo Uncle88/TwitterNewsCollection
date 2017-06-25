@@ -187,19 +187,17 @@ namespace TwitterNewsCollection.Models
 		public List<Medium7> media { get; set; }
 	}
 
-	public class RootObject
+	public class TwitterNewsResponse
 	{
-		//public object id { get; set; }
 		public string text { get; set; }
 		public Entities entities { get; set; }
-		//public string source { get; set; }
 		public User user { get; set; }
 		public RetweetedStatus retweeted_status { get; set; }
 		public ExtendedEntities2 extended_entities { get; set; }
 	}
 
-    public class MyClass
+    public class TwitterData
     {
-        public List<RootObject> Data { get; set; }
+        public List<TwitterNewsResponse> Data { get; set; }
     }
 }

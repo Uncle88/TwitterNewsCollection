@@ -22,19 +22,19 @@ namespace TwitterNewsCollectionIOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            this.CreateBindingSet<CollectionView, ListViewModel>();
             _collectionView.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
             var sourse = new MvxCollectionViewSource(_collectionView, CollectionViewCell.Key);
             _collectionView.Source = sourse;
             _collectionView.Delegate = new ListDelegateFlowLayout();
             var set = this.CreateBindingSet<CollectionView, ListViewModel>();
-            set.Bind(sourse).For(s => s.ItemsSource).To(vm => vm.RootObj);
+            set.Bind(sourse).For(s => s.ItemsSource).To(vm => vm.TwitterFeeds);
             set.Apply();
         }
 
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
     }
 }

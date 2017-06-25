@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
+using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
-using MvvmCross.Binding.BindingContext;
-using System.Diagnostics.Contracts;
 
 namespace TwitterNewsCollection.ViewModels
 {
-    public class ListViewModel : MvxViewModel<List<RootObject>>
+    public class ListViewModel : MvxViewModel
     {
-        public List<RootObject> RootObj { get; private set; }
+		private readonly IAuthenticationService _authServ;
 
-        public override Task Initialize(List<RootObject> parameter)
+        public ListViewModel(IAuthenticationService authServ)
         {
-            RootObj = parameter;
-            return null;
+			_authServ = authServ;
+			_authServ.ResponseFeedsCompleted += _authServ_ResponseFeedsCompleted;
+			_authServ.LoginToTwitter();
         }
+
+        private void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)
+        {
+            TwitterFeeds = e.TwitterObjects;
+            RaisePropertyChanged(nameof(TwitterFeeds));
+        }
+
+        public List<TwitterNewsResponse> TwitterFeeds { get; private set; }
     }
 }

@@ -11,7 +11,7 @@ namespace TwitterNewsCollection
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-            RegisterAppStart<ViewModels.AuthViewModel>();
+            RegisterAppStart<ViewModels.ListViewModel>();
         }
     }
 }

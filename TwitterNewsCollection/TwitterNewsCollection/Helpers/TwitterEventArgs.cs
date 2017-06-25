@@ -6,11 +6,11 @@ namespace TwitterNewsCollection.Helpers
 {
     public class TwitterEventArgs : EventArgs
     {
-        public TwitterEventArgs(List<RootObject> list)
+        public TwitterEventArgs(List<TwitterNewsResponse> list)
         {
             TwitterObjects = list;
         }
 
-        public List<RootObject> TwitterObjects { get; private set; }
+        public List<TwitterNewsResponse> TwitterObjects { get; private set; }
     }
 }
