@@ -13,11 +13,11 @@ namespace TwitterNewsCollection.ViewModels
         public ListViewModel(IAuthenticationService authServ)
         {
 			_authServ = authServ;
-			_authServ.ResponseFeedsCompleted += _authServ_ResponseFeedsCompleted;
+            _authServ.ResponseFeedsCompleted += OnResponseFeedsCompleted;
 			_authServ.LoginToTwitter();
         }
 
-        private void _authServ_ResponseFeedsCompleted(object sender, TwitterEventArgs e)//rename
+        private void OnResponseFeedsCompleted(object sender, TwitterEventArgs e)
         {
             TwitterFeeds = e.TwitterObjects;
             RaisePropertyChanged(nameof(TwitterFeeds));

@@ -31,11 +31,6 @@ namespace TwitterNewsCollectionIOS.Views
             set.Bind(sourse).For(s => s.ItemsSource).To(vm => vm.TwitterFeeds);
             set.Apply();
         }
-
-        public override void DidReceiveMemoryWarning()//is there reason to invoke this method?
-        {
-            base.DidReceiveMemoryWarning();
-        }
     }
 }
 
