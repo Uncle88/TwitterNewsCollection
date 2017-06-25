@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNewsCollection", "Tw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNewsCollectionIOS", "TwitterNewsCollectionIOS\TwitterNewsCollectionIOS.csproj", "{9C6E16E1-A8A2-485A-90BB-CD56DEBB06BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNewsCollectionAndroid", "TwitterNewsCollectionAndroid\TwitterNewsCollectionAndroid.csproj", "{74464DFB-520C-468E-BEE6-10CF73CF3E82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,17 @@ Global
 		{9C6E16E1-A8A2-485A-90BB-CD56DEBB06BC}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{9C6E16E1-A8A2-485A-90BB-CD56DEBB06BC}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{9C6E16E1-A8A2-485A-90BB-CD56DEBB06BC}.Debug|iPhone.Build.0 = Debug|iPhone
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|iPhone.Build.0 = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{74464DFB-520C-468E-BEE6-10CF73CF3E82}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
