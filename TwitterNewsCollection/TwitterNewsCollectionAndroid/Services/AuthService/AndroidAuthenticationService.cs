@@ -47,13 +47,13 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
                 }
                 else
                 {
-                    //Toast.MakeText(this, "response not received", ToastLength.Long).Show();
+                    Toast.MakeText(Application.Context, "response not received", ToastLength.Long).Show();
                 }
             }
             else
             {
-                //Toast.MakeText(this, "Not Authenticated", ToastLength.Long).Show();
-            }
+				Toast.MakeText(Application.Context, "Not Authenticated", ToastLength.Long).Show();
+			}
         }
     }
 }

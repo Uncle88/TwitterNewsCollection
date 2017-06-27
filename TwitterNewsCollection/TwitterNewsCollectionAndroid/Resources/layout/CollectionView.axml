@@ -3,13 +3,11 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+    android:layout_height="match_parent">
     <MvxRecyclerView
-        android:id="@+id/my_recycler_view"
+        android:id="@+id/myView"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        local:MvxItemTemplate="@layout/listitem_twitterFeeds"
-        local:MvxBind="ItemsSource TwitterNewsResponse" />
+        local:MvxBind="ItemsSource TwitterFeeds" />
 </LinearLayout>
