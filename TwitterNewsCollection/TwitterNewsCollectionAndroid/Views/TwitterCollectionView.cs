@@ -2,9 +2,11 @@
 using Android.App;
 using Android.OS;
 using Android.Views;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using MvvmCross.Droid.Views;
 using TwitterNewsCollection.Helpers;
+using TwitterNewsCollection.ViewModels;
 using TwitterNewsCollectionAndroid.Services.AuthService;
 
 namespace TwitterNewsCollectionAndroid.Views
@@ -14,7 +16,13 @@ namespace TwitterNewsCollectionAndroid.Views
 	{
         MvxRecyclerView List;
 
-        protected override void OnCreate(Android.OS.Bundle bundle)
+		public new ListViewModel ViewModel
+		{
+			get { return (ListViewModel)base.ViewModel; }
+			set { base.ViewModel = value; }
+		}
+
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
@@ -23,9 +31,9 @@ namespace TwitterNewsCollectionAndroid.Views
 			List = this.FindViewById<MvxRecyclerView>(Resource.Id.myView);
 			List.ItemTemplateId = Resource.Layout.listItemTwitterFeeds;
 
-			var authServ = new AndroidAuthenticationService();
-            authServ.ResponseFeedsCompleted += authAndroidResponseFeedsCompleted;
-			authServ.LoginToTwitter();
+			//var authServ = new AndroidAuthenticationService();
+   //         authServ.ResponseFeedsCompleted += authAndroidResponseFeedsCompleted;
+			//authServ.LoginToTwitter();
         }
 
         void authAndroidResponseFeedsCompleted(object sender, TwitterEventArgs e)
@@ -35,6 +43,13 @@ namespace TwitterNewsCollectionAndroid.Views
 				List.ItemsSource = e.TwitterObjects;            
             });
         }
+
+        protected override void OnViewModelSet()
+        {
+            base.OnViewModelSet();
+            SetContentView(Resource.Layout.CollectionView);
+
+            var set = this.CreateBindingSet<TwitterCollectionView, ListViewModel>();
+        }
     }
 }
-

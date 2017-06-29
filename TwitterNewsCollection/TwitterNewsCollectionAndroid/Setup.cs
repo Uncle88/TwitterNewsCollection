@@ -8,6 +8,8 @@ using MvvmCross.Droid.Shared.Presenter;
 using MvvmCross.Droid.Views;
 using MvvmCross.Platform;
 using TwitterNewsCollection;
+using TwitterNewsCollection.Authentication;
+using TwitterNewsCollectionAndroid.Services.AuthService;
 
 namespace TwitterNewsCollectionAndroid
 {
@@ -34,5 +36,11 @@ namespace TwitterNewsCollectionAndroid
 		{
 			typeof(MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView).Assembly
 		};
+
+		protected override void InitializePlatformServices()
+		{
+			Mvx.RegisterSingleton<IAuthenticationService>(new AndroidAuthenticationService());
+			base.InitializePlatformServices();
+		}
 	}
 }
