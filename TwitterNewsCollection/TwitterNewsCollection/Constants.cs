@@ -13,6 +13,5 @@ namespace TwitterNewsCollection
         public static readonly string TWITTER_GRAPH_URL = "https://api.twitter.com/1.1/account/verify_credentials.json";
         public static readonly string TWITTER_ACCESS_TOKEN = "https://api.twitter.com/oauth2/token";
         public static readonly string TWITTER_ACCESS_TOKEN_Secret = "4j99v98ZQugQCQZfitpjBtaqVPcvcM7fwoaqntsJM75MR";
-
     }
 }

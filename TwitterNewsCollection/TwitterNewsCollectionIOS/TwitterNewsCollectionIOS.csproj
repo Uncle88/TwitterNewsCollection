@@ -144,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Views\CollectionView.xib" />
     <InterfaceDefinition Include="Views\Cell\CollectionViewCell.xib" />
   </ItemGroup>

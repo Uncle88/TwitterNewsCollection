@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using Android.Content;
 using MvvmCross.Core.ViewModels;
@@ -24,13 +23,6 @@ namespace TwitterNewsCollectionAndroid
         {
             return new App();
         }
-
-		protected override IMvxAndroidViewPresenter CreateViewPresenter()
-		{
-			var mvxFragmentsPresenter = new MvxFragmentsPresenter(AndroidViewAssemblies);
-			Mvx.RegisterSingleton<IMvxAndroidViewPresenter>(mvxFragmentsPresenter);
-			return mvxFragmentsPresenter;
-		}
 
 		protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
 		{
