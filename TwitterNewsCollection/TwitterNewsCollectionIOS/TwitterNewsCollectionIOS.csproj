@@ -141,6 +141,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\AuthService\" />
     <Folder Include="Views\Cell\" />
+    <Folder Include="DataSourse\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -161,11 +162,11 @@
     <Compile Include="Views\CollectionView.designer.cs">
       <DependentUpon>CollectionView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListDelegateFlowLayout.cs" />
     <Compile Include="Views\Cell\CollectionViewCell.cs" />
     <Compile Include="Views\Cell\TwitterCollectionViewCell.designer.cs">
       <DependentUpon>CollectionViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSourse\ListDelegateFlowLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">
