@@ -46,7 +46,7 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
                 if (response != null)
                 {
                     string _data = response.GetResponseText();
-                    var _newsResponce = (TwitterNewsResponse[])JsonConvert.DeserializeObject(_data, typeof(TwitterNewsResponse[]));
+                    var _newsResponce = (RetwittedItem[])JsonConvert.DeserializeObject(_data, typeof(RetwittedItem[]));
                     TwitterEventArgs twEventArgs = new TwitterEventArgs(_newsResponce.ToList());
                     ResponseFeedsCompleted?.Invoke(this, twEventArgs);
                 }

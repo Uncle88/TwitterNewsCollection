@@ -14,7 +14,7 @@ namespace TwitterNewsCollection.ViewModels
 			authServ.LoginToTwitter();
         }
 
-		public List<TwitterNewsResponse> TwitterFeeds { get; private set; }
+		public List<RetwittedItem> TwitterFeeds { get; private set; }
 
         private void OnResponseFeedsCompleted(object sender, TwitterEventArgs e)
         {

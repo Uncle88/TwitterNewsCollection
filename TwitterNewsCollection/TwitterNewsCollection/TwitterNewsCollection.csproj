@@ -34,7 +34,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="Helpers\TwitterEventArgs.cs" />
-    <Compile Include="Models\TwitterNewsResponse.cs" />
+    <Compile Include="Models\RetwittedItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
