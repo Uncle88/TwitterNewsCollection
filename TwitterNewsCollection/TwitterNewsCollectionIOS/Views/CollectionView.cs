@@ -16,7 +16,7 @@ namespace TwitterNewsCollectionIOS.Views
         public new ListViewModel ViewModel
         {
             get { return (ListViewModel)base.ViewModel; }
-            set { base.ViewModel = (IMvxViewModel)value; }
+            set { base.ViewModel = value; }
         }
 
         public override void ViewDidLoad()

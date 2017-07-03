@@ -26,8 +26,6 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 				set.Bind(_textCell).To(vm => vm.text);
 				set.Apply();
 			});
-
-
 		}
 	}
 }

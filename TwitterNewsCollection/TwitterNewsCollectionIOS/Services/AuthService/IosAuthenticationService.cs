@@ -1,14 +1,12 @@
 using System;
-using System.Threading.Tasks;
+using System.Linq;
 using Newtonsoft.Json;
+using TwitterNewsCollection;
 using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Helpers;
+using TwitterNewsCollection.Models;
 using UIKit;
 using Xamarin.Auth;
-using TwitterNewsCollection.Models;
-using TwitterNewsCollection;
-using TwitterNewsCollection.Helpers;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace TwitterNewsCollectionIOS
 {
@@ -29,7 +27,7 @@ namespace TwitterNewsCollectionIOS
 
             auth.Completed += OnAuthCompleted;
 
-            AuthView = (UIKit.UIViewController)auth.GetUI();
+            AuthView = auth.GetUI();
             var window = UIApplication.SharedApplication.KeyWindow;
             var vc = window.RootViewController;
             vc.PresentViewController(AuthView, true, null);

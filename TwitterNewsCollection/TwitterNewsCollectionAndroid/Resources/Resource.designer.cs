@@ -2486,11 +2486,8 @@ namespace TwitterNewsCollectionAndroid
 			// aapt resource value: 0x7f060013
 			public const int abc_toolbar_collapse_description = 2131099667;
 			
-			// aapt resource value: 0x7f060023
-			public const int app_name = 2131099683;
-			
 			// aapt resource value: 0x7f060022
-			public const int hello = 2131099682;
+			public const int app_name = 2131099682;
 			
 			// aapt resource value: 0x7f060014
 			public const int search_menu_title = 2131099668;
