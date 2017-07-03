@@ -148,6 +148,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\CollectionView.axml" />
     <AndroidResource Include="Resources\layout\listItemTwitterFeeds.axml" />
+    <AndroidResource Include="Resources\drawable\twitterLabel.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

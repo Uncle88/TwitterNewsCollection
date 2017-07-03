@@ -7,7 +7,7 @@ using TwitterNewsCollection.ViewModels;
 
 namespace TwitterNewsCollectionAndroid.Views
 {
-    [Activity(Label = "Twitter", MainLauncher = true)]
+    [Activity(Label = "TwitterNews", MainLauncher = true , Icon = "@drawable/twitterLabel")]
 	public class TwitterCollectionView : MvxActivity
 	{
         MvxRecyclerView List;
