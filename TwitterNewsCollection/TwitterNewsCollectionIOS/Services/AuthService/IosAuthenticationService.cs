@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Security.Policy;
 using Newtonsoft.Json;
 using TwitterNewsCollection;
 using TwitterNewsCollection.Authentication;
@@ -14,6 +15,11 @@ namespace TwitterNewsCollectionIOS
     {
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
         private UIViewController AuthView;
+		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
+        private const string methodRequest = "GET";
+        private const string errorResponseMessage = "response not received";
+        private const string errorAuthMessage = "Not Authenticated";
+        private const string errorTitle = "Error";
 
         public void LoginToTwitter()
         {
@@ -38,7 +44,7 @@ namespace TwitterNewsCollectionIOS
             AuthView.DismissViewController(true, null);
             if (eventArgs.IsAuthenticated)
             {
-                var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account);
+                var request = new OAuth1Request(methodRequest, urlRequest, null, eventArgs.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
@@ -48,25 +54,24 @@ namespace TwitterNewsCollectionIOS
                     ResponseFeedsCompleted?.Invoke(this, twEventArgs);
                 }
                 else
-				{
-					UIAlertView alert = new UIAlertView();
-                    alert.Message = "response not received";
-					alert.Show();
-					return;
-				}
-			}
-			else
-			{
-				UIAlertView alert = new UIAlertView()
-				{
-					Title = "Error",
-					Message = "Not Authenticated"
-				};
-				alert.AddButton("OK");
-				alert.Show();
-				return;
-			}
+                {
+                    UIAlertView alert = new UIAlertView();
+                    alert.Message = errorResponseMessage;
+                    alert.Show();
+                    return;
+                }
+            }
+            else
+            {
+                UIAlertView alert = new UIAlertView()
+                {
+                    Title = errorTitle,
+                    Message = errorAuthMessage
+                };
+                alert.AddButton("OK");
+                alert.Show();
+                return;
+            }
         }
     }
 }
-   
