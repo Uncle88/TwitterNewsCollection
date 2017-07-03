@@ -43,8 +43,8 @@ namespace TwitterNewsCollectionIOS
                 if (response != null)
                 {
                     string _data = response.GetResponseText();
-                    var myObj = (TwitterNewsResponse[])JsonConvert.DeserializeObject(_data, typeof(TwitterNewsResponse[]));
-                    TwitterEventArgs twEventArgs = new TwitterEventArgs(myObj.ToList());
+                    var _newsResponce = (TwitterNewsResponse[])JsonConvert.DeserializeObject(_data, typeof(TwitterNewsResponse[]));
+                    TwitterEventArgs twEventArgs = new TwitterEventArgs(_newsResponce.ToList());
                     ResponseFeedsCompleted?.Invoke(this, twEventArgs);
                 }
                 else
