@@ -1,26 +1,24 @@
-using System;
+﻿using System;
 using System.Linq;
-using System.Security.Policy;
+using Android.App;
+using Android.Widget;
 using Newtonsoft.Json;
 using TwitterNewsCollection;
 using TwitterNewsCollection.Authentication;
 using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
-using UIKit;
 using Xamarin.Auth;
 
-namespace TwitterNewsCollectionIOS
+namespace TwitterNewsCollectionAndroid.Services.AuthService
 {
-    public class IosAuthenticationService : IAuthenticationService
+    public class AndroidAuthenticationService : IAuthenticationService
     {
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
-        private UIViewController AuthView;
+
 		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
-        private const string methodRequest = "GET";
-        private const string errorResponseMessage = "response not received";
-        private const string errorAuthMessage = "Not Authenticated";
-        private const string errorTitle = "Error";
-        private const string buttonText = "OK";
+		private const string methodRequest = "GET";
+		private const string errorResponseMessage = "response not received";
+		private const string errorAuthMessage = "Not Authenticated";
 
         public void LoginToTwitter()
         {
@@ -34,15 +32,13 @@ namespace TwitterNewsCollectionIOS
 
             auth.Completed += OnAuthCompleted;
 
-            AuthView = auth.GetUI();
-            var window = UIApplication.SharedApplication.KeyWindow;
-            var vc = window.RootViewController;
-            vc.PresentViewController(AuthView, true, null);
+            var intent = auth.GetUI(Application.Context);
+            intent.AddFlags(Android.Content.ActivityFlags.NewTask);
+            Application.Context.StartActivity(intent);
         }
 
         private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
         {
-            AuthView.DismissViewController(true, null);
             if (eventArgs.IsAuthenticated)
             {
                 var request = new OAuth1Request(methodRequest, urlRequest, null, eventArgs.Account);
@@ -56,23 +52,13 @@ namespace TwitterNewsCollectionIOS
                 }
                 else
                 {
-                    UIAlertView alert = new UIAlertView();
-                    alert.Message = errorResponseMessage;
-                    alert.Show();
-                    return;
+                    Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
                 }
             }
             else
             {
-                UIAlertView alert = new UIAlertView()
-                {
-                    Title = errorTitle,
-                    Message = errorAuthMessage
-                };
-                alert.AddButton(buttonText);
-                alert.Show();
-                return;
-            }
+				Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
+			}
         }
     }
 }

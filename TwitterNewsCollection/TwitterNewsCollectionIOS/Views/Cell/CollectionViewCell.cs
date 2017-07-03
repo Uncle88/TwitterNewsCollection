@@ -22,12 +22,10 @@ namespace TwitterNewsCollectionIOS.Views.Cell
 		{
 			this.DelayBind(() =>
 			{
-                var set = this.CreateBindingSet<CollectionViewCell, TwitterNewsResponse>();
+                var set = this.CreateBindingSet<CollectionViewCell, RetwittedItem>();
 				set.Bind(_textCell).To(vm => vm.text);
 				set.Apply();
 			});
-
-
 		}
 	}
 }

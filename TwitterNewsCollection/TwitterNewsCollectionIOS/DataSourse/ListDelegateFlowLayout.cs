@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using CoreGraphics;
+﻿using CoreGraphics;
 using Foundation;
 using UIKit;
 

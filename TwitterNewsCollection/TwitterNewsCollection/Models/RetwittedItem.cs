@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace TwitterNewsCollection.Models
 {
-	public class TwitterNewsResponse
+	public class RetwittedItem 
 	{
 		public string text { get; set; }
 	}
 
-    public class TwitterData
+    public class TwitterNewsResponse
     {
-        public List<TwitterNewsResponse> Data { get; set; }
+        public List<RetwittedItem> Data { get; set; }
     }
 }

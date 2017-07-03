@@ -1,6 +1,5 @@
 ﻿using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
-using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Views;
 using TwitterNewsCollection.ViewModels;
 using TwitterNewsCollectionIOS.Views.Cell;
@@ -16,7 +15,7 @@ namespace TwitterNewsCollectionIOS.Views
         public new ListViewModel ViewModel
         {
             get { return (ListViewModel)base.ViewModel; }
-            set { base.ViewModel = (IMvxViewModel)value; }
+            set { base.ViewModel = value; }
         }
 
         public override void ViewDidLoad()
