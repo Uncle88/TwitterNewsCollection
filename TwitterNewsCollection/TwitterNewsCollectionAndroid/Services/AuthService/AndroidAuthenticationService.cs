@@ -15,6 +15,11 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
     {
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
 
+		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
+		private const string methodRequest = "GET";
+		private const string errorResponseMessage = "response not received";
+		private const string errorAuthMessage = "Not Authenticated";
+
         public void LoginToTwitter()
         {
             var auth = new OAuth1Authenticator(
@@ -36,7 +41,7 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
         {
             if (eventArgs.IsAuthenticated)
             {
-                var request = new OAuth1Request("GET", new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json"), null, eventArgs.Account);
+                var request = new OAuth1Request(methodRequest, urlRequest, null, eventArgs.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
@@ -47,12 +52,12 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
                 }
                 else
                 {
-                    Toast.MakeText(Application.Context, "response not received", ToastLength.Long).Show();
+                    Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
                 }
             }
             else
             {
-				Toast.MakeText(Application.Context, "Not Authenticated", ToastLength.Long).Show();
+				Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
 			}
         }
     }

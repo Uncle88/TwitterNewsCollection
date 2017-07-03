@@ -20,6 +20,7 @@ namespace TwitterNewsCollectionIOS
         private const string errorResponseMessage = "response not received";
         private const string errorAuthMessage = "Not Authenticated";
         private const string errorTitle = "Error";
+        private const string buttonText = "OK";
 
         public void LoginToTwitter()
         {
@@ -68,7 +69,7 @@ namespace TwitterNewsCollectionIOS
                     Title = errorTitle,
                     Message = errorAuthMessage
                 };
-                alert.AddButton("OK");
+                alert.AddButton(buttonText);
                 alert.Show();
                 return;
             }
