@@ -1,6 +1,5 @@
 ﻿using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
-using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Views;
 using TwitterNewsCollection.ViewModels;
 using TwitterNewsCollectionIOS.Views.Cell;
