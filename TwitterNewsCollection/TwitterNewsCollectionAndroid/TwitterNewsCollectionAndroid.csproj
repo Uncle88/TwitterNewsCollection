@@ -131,7 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\TwitterCollectionView.cs" />
-    <Compile Include="Services\AuthService\AndroidAuthenticationService.cs" />
+    <Compile Include="Services\UIService\AndroidNativeUIService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -155,7 +155,7 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Views\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\AuthService\" />
+    <Folder Include="Services\UIService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">

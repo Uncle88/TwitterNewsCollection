@@ -47,12 +47,12 @@ namespace TwitterNewsCollection.Services.Authentication
 					}
 					else
 					{
-						//Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
-					}
+					//Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();  ---  replace for service
+				    }
 				}
 				else
 				{
-					//Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
+					//Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();   ---  replace for service
 				}
 			}
         }
