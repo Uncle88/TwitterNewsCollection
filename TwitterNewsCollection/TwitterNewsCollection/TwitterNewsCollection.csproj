@@ -35,6 +35,7 @@
     <Compile Include="ViewModels\ListViewModel.cs" />
     <Compile Include="Helpers\TwitterEventArgs.cs" />
     <Compile Include="Models\RetwittedItem.cs" />
+    <Compile Include="Services\Authentication\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
