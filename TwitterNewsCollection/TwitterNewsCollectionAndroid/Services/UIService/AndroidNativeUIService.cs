@@ -1,12 +1,4 @@
-﻿using System;
-using System.Linq;
-using Android.App;
-using Android.Widget;
-using Newtonsoft.Json;
-using TwitterNewsCollection;
-using TwitterNewsCollection.Authentication;
-using TwitterNewsCollection.Helpers;
-using TwitterNewsCollection.Models;
+﻿using Android.App;
 using TwitterNewsCollection.Services.PlatformUI;
 using Xamarin.Auth;
 

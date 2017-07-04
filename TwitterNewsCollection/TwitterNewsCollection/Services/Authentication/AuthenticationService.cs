@@ -11,11 +11,15 @@ namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
+        public AuthenticationService(IPopUpMessage popUpMes)
+        {
+            popUp = popUpMes;
+        }
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
 
         private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
         private const string methodRequest = "GET";
-        private readonly IPopUpMessage popUp;
+        IPopUpMessage popUp;
 
         public OAuth1Authenticator LoginToTwitter()
         {
