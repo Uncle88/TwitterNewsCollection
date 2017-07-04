@@ -132,6 +132,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Views\TwitterCollectionView.cs" />
     <Compile Include="Services\UIService\AndroidNativeUIService.cs" />
+    <Compile Include="Services\AndroidErrorMessageService\PopUpMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -156,6 +157,7 @@
     <Folder Include="Views\" />
     <Folder Include="Services\" />
     <Folder Include="Services\UIService\" />
+    <Folder Include="Services\AndroidErrorMessageService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">

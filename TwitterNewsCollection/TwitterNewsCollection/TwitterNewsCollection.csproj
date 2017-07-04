@@ -37,6 +37,7 @@
     <Compile Include="Models\RetwittedItem.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\PlatformUI\INativeUI.cs" />
+    <Compile Include="Services\ErrorMessageService\IPopUpMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
@@ -86,6 +87,7 @@
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\PlatformUI\" />
+    <Folder Include="Services\ErrorMessageService\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
