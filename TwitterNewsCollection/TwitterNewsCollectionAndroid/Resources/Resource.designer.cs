@@ -1825,7 +1825,7 @@ namespace TwitterNewsCollectionAndroid
 			public const int notify_panel_notification_icon_bg = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int twitterLabel = 2130837598;
+			public const int twitterIcon = 2130837598;
 			
 			static Drawable()
 			{
