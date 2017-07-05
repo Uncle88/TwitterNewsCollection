@@ -5,19 +5,19 @@ namespace TwitterNewsCollectionIOS.Services.IosErrorMessageService
 {
     public class PopUpMessage : IPopUpMessage
     {
-		private const string errorResponseMessage = "response not received";
-		private const string errorAuthMessage = "Not Authenticated";
-		private const string errorTitle = "Error";
-		private const string buttonText = "OK";
+        private const string ErrorResponseMessage = "response not received";
+        private const string ErrorAuthMessage = "Not Authenticated";
+        private const string ErrorTitle = "Error";
+        private const string ButtonText = "OK";
 
         public void ShowMessageNotAuth()
         {
 			UIAlertView alert = new UIAlertView()
 			{
-				Title = errorTitle,
-				Message = errorAuthMessage
+				Title = ErrorTitle,
+				Message = ErrorAuthMessage
 			};
-			alert.AddButton(buttonText);
+			alert.AddButton(ButtonText);
 			alert.Show();
 			return;
         }
@@ -25,7 +25,7 @@ namespace TwitterNewsCollectionIOS.Services.IosErrorMessageService
         public void ShowMessageNotResponse()
         {
 			UIAlertView alert = new UIAlertView();
-			alert.Message = errorResponseMessage;
+			alert.Message = ErrorResponseMessage;
 			alert.Show();
 			return;
         }

@@ -6,17 +6,17 @@ namespace TwitterNewsCollectionAndroid.Services.ErrorMessageService
 {
     public class PopUpMessage : IPopUpMessage
     {
-        private const string errorResponseMessage = "response not received";
-        private const string errorAuthMessage = "Not Authenticated";
+        private const string ErrorResponseMessage = "response not received";
+        private const string ErrorAuthMessage = "Not Authenticated";
 
         public void ShowMessageNotAuth()
         {
-			Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
+			Toast.MakeText(Application.Context, ErrorAuthMessage, ToastLength.Long).Show();
         }
 
         public void ShowMessageNotResponse()
         {
-			Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
+			Toast.MakeText(Application.Context, ErrorResponseMessage, ToastLength.Long).Show();
         }
     }
 }

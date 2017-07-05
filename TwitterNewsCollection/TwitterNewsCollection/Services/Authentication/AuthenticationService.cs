@@ -12,18 +12,17 @@ namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
+		IPopUpMessage popUp;
+		INativeUI natUI;
+		public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
+		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
+		private const string methodRequest = "GET";
+
         public AuthenticationService(IPopUpMessage popUpMes,INativeUI natUIService )
         {
             popUp = popUpMes;
             natUI = natUIService;
         }
-
-        public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
-
-        private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
-        private const string methodRequest = "GET";
-        IPopUpMessage popUp;
-        INativeUI natUI ;
 
         public OAuth1Authenticator LoginToTwitter()
         {
