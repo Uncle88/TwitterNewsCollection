@@ -139,7 +139,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\AuthService\" />
+    <Folder Include="Services\UIService\" />
     <Folder Include="Views\Cell\" />
     <Folder Include="DataSourse\" />
     <Folder Include="Services\IosErrorMessageService\" />
@@ -158,7 +158,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Services\AuthService\IosAuthenticationService.cs" />
+    <Compile Include="Services\UIService\IosNativeUIService.cs" />
     <Compile Include="Views\CollectionView.cs" />
     <Compile Include="Views\CollectionView.designer.cs">
       <DependentUpon>CollectionView.cs</DependentUpon>
