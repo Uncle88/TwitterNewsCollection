@@ -142,6 +142,7 @@
     <Folder Include="Services\AuthService\" />
     <Folder Include="Views\Cell\" />
     <Folder Include="DataSourse\" />
+    <Folder Include="Services\IosErrorMessageService\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -167,6 +168,7 @@
       <DependentUpon>CollectionViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSourse\ListDelegateFlowLayout.cs" />
+    <Compile Include="Services\IosErrorMessageService\PopUpMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">
