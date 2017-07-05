@@ -3,9 +3,7 @@ using MvvmCross.Core.ViewModels;
 using TwitterNewsCollection.Authentication;
 using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
-using TwitterNewsCollection.Services.Authentication;
 using TwitterNewsCollection.Services.PlatformUI;
-using Xamarin.Auth;
 
 namespace TwitterNewsCollection.ViewModels
 {

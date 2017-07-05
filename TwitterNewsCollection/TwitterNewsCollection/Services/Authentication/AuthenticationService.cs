@@ -51,12 +51,12 @@ namespace TwitterNewsCollection.Services.Authentication
                 }
                 else
                 {
-                    popUp.GetToastNotResponse();
+                    popUp.ShowMessageNotResponse();
                 }
             }
             else
             {
-                popUp.GetToastNotAuth();
+                popUp.ShowMessageNotAuth();
 			}
         }
     }
