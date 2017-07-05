@@ -2,7 +2,9 @@
 using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Platform;
-using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Services.ErrorMessageService;
+using TwitterNewsCollection.Services.PlatformUI;
+using TwitterNewsCollectionIOS.Services.IosErrorMessageService;
 using UIKit;
 
 namespace TwitterNewsCollectionIOS
@@ -26,8 +28,9 @@ namespace TwitterNewsCollectionIOS
 
         protected override void InitializePlatformServices()
         {
-            Mvx.RegisterSingleton<IAuthenticationService>(new IosAuthenticationService());
-            base.InitializePlatformServices();
+			base.InitializePlatformServices();
+            Mvx.RegisterSingleton<INativeUI>(new IosNativeUIService());
+			Mvx.RegisterSingleton<IPopUpMessage>(new PopUpMessage());
         }
     }
 }
