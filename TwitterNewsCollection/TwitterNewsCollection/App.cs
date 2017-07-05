@@ -4,6 +4,7 @@ using MvvmCross.Platform.IoC;
 using TwitterNewsCollection.Authentication;
 using TwitterNewsCollection.Services.Authentication;
 using TwitterNewsCollection.Services.ErrorMessageService;
+using TwitterNewsCollection.Services.PlatformUI;
 
 namespace TwitterNewsCollection
 {
@@ -11,11 +12,12 @@ namespace TwitterNewsCollection
     {
         public override void Initialize()
         {
-            var droidToast = Mvx.Resolve<IPopUpMessage>();
-            Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(droidToast));
+            var natUIService = Mvx.Resolve<INativeUI>();
+            var popUpMes = Mvx.Resolve<IPopUpMessage>();
+            Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(popUpMes,natUIService));
 
-			var iosAlert = Mvx.Resolve<IPopUpMessage>();
-			Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(iosAlert));
+			//var iosAlert = Mvx.Resolve<IPopUpMessage>();
+			//Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(iosAlert));
 
             CreatableTypes()
                 .EndingWith("Service")

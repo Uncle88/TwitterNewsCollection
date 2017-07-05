@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using TwitterNewsCollection.Services.PlatformUI;
 using Xamarin.Auth;
 
@@ -12,5 +13,9 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
 			intent.AddFlags(Android.Content.ActivityFlags.NewTask);
 			Application.Context.StartActivity(intent);
 		}
+
+        public void RejectView()
+        {
+        }
     }
 }

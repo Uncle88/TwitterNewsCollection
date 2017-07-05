@@ -5,21 +5,27 @@ using TwitterNewsCollection.Authentication;
 using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
 using TwitterNewsCollection.Services.ErrorMessageService;
+using TwitterNewsCollection.Services.PlatformUI;
 using Xamarin.Auth;
 
 namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public AuthenticationService(IPopUpMessage popUpMes)
+        public AuthenticationService(IPopUpMessage popUpMes,INativeUI natUIService )
         {
             popUp = popUpMes;
+            natUI = natUIService;
         }
+
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
 
         private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
         private const string methodRequest = "GET";
         IPopUpMessage popUp;
+        INativeUI natUI ;
+        private IPopUpMessage droidToast;
+        private IPopUpMessage popUpMes;
 
         public OAuth1Authenticator LoginToTwitter()
         {
@@ -38,6 +44,7 @@ namespace TwitterNewsCollection.Services.Authentication
 
         private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
         {
+            natUI.RejectView();
             if (eventArgs.IsAuthenticated)
             {
                 var request = new OAuth1Request(methodRequest, urlRequest, null, eventArgs.Account);
