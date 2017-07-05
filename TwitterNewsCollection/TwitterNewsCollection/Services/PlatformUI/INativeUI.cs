@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Auth;
+﻿using Xamarin.Auth;
 
 namespace TwitterNewsCollection.Services.PlatformUI
 {

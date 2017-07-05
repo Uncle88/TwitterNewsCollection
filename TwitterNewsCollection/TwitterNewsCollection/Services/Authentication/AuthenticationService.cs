@@ -24,8 +24,6 @@ namespace TwitterNewsCollection.Services.Authentication
         private const string methodRequest = "GET";
         IPopUpMessage popUp;
         INativeUI natUI ;
-        private IPopUpMessage droidToast;
-        private IPopUpMessage popUpMes;
 
         public OAuth1Authenticator LoginToTwitter()
         {

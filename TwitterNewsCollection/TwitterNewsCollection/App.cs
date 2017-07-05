@@ -16,9 +16,6 @@ namespace TwitterNewsCollection
             var popUpMes = Mvx.Resolve<IPopUpMessage>();
             Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(popUpMes,natUIService));
 
-			//var iosAlert = Mvx.Resolve<IPopUpMessage>();
-			//Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(iosAlert));
-
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()

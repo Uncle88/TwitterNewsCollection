@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace TwitterNewsCollection
 {
     public class Constants
