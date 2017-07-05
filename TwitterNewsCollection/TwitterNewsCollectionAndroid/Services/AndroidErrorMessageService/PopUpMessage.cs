@@ -9,14 +9,14 @@ namespace TwitterNewsCollectionAndroid.Services.ErrorMessageService
         private const string errorResponseMessage = "response not received";
         private const string errorAuthMessage = "Not Authenticated";
 
-        public void GetToastNotAuth()
+        public void ShowMessageNotAuth()
         {
-           Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
+			Toast.MakeText(Application.Context, errorAuthMessage, ToastLength.Long).Show();
         }
 
-        public void GetToastNotResponse()
+        public void ShowMessageNotResponse()
         {
-            Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
+			Toast.MakeText(Application.Context, errorResponseMessage, ToastLength.Long).Show();
         }
     }
 }
