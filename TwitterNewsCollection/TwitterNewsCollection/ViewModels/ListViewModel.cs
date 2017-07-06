@@ -9,11 +9,11 @@ namespace TwitterNewsCollection.ViewModels
 {
     public class ListViewModel : MvxViewModel
     {
-        public ListViewModel(IAuthenticationService authS, INativeUI ui)
+        public ListViewModel(IAuthenticationService authService, INativeUIService uiService)
         {
-            authS.ResponseFeedsCompleted += OnResponseFeedsCompleted;
-            var oauth = authS.LoginToTwitter();
-            ui.GetNativeUI(oauth);
+            authService.ResponseFeedsCompleted += OnResponseFeedsCompleted;
+            var oauth = authService.LoginToTwitter();
+            uiService.GetNativeUI(oauth);
         }
 
 		public List<RetwittedItem> TwitterFeeds { get; private set; }

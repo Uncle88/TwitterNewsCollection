@@ -12,14 +12,15 @@ namespace TwitterNewsCollection
     {
         public override void Initialize()
         {
-            var natUIService = Mvx.Resolve<INativeUI>();
-            var popUpMes = Mvx.Resolve<IPopUpMessage>();
-            Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(popUpMes,natUIService));
+            var nativeUIService = Mvx.Resolve<INativeUIService>();
+            var popUpMessageService = Mvx.Resolve<IPopUpMessageService>();
+            Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(popUpMessageService,nativeUIService));
 
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
+            
             RegisterAppStart<ViewModels.ListViewModel>();
         }
     }

@@ -131,8 +131,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\TwitterCollectionView.cs" />
-    <Compile Include="Services\UIService\AndroidNativeUIService.cs" />
-    <Compile Include="Services\AndroidErrorMessageService\PopUpMessage.cs" />
+    <Compile Include="Services\AndroidUI\AndroidNativeUIService.cs" />
+    <Compile Include="Services\AndroidErrorMessage\PopUpMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -156,8 +156,8 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Views\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\UIService\" />
-    <Folder Include="Services\AndroidErrorMessageService\" />
+    <Folder Include="Services\AndroidUI\" />
+    <Folder Include="Services\AndroidErrorMessage\" />
     <Folder Include="Resources\mipmap-hdpi\" />
     <Folder Include="Resources\mipmap-mdpi\" />
     <Folder Include="Resources\mipmap-xhdpi\" />

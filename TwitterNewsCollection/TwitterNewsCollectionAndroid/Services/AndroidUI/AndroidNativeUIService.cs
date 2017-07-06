@@ -4,7 +4,7 @@ using Xamarin.Auth;
 
 namespace TwitterNewsCollectionAndroid.Services.AuthService
 {
-    public class AndroidNativeUIService : INativeUI
+    public class AndroidNativeUIService : INativeUIService
     {
 		public void GetNativeUI(OAuth1Authenticator auth)
 		{

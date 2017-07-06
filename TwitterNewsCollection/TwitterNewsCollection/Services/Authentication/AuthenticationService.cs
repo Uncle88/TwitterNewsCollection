@@ -12,16 +12,17 @@ namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-		IPopUpMessage popUp;
-		INativeUI natUI;
-		public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
+        private const string MethodRequest = "GET";
 		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
-		private const string methodRequest = "GET";
+        private IPopUpMessageService popUpMessageService;
+        private INativeUIService nativeUIService;
 
-        public AuthenticationService(IPopUpMessage popUpMes,INativeUI natUIService )
+        public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
+
+        public AuthenticationService(IPopUpMessageService popUpMes,INativeUIService natUIService )
         {
-            popUp = popUpMes;
-            natUI = natUIService;
+            popUpMessageService = popUpMes;
+            nativeUIService = natUIService;
         }
 
         public OAuth1Authenticator LoginToTwitter()
@@ -41,26 +42,27 @@ namespace TwitterNewsCollection.Services.Authentication
 
         private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
         {
-            natUI.RejectView();
+            nativeUIService.RejectView();
             if (eventArgs.IsAuthenticated)
             {
-                var request = new OAuth1Request(methodRequest, urlRequest, null, eventArgs.Account);
+                var request = new OAuth1Request(MethodRequest, urlRequest, null, eventArgs.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
-                    string _data = response.GetResponseText();
-                    var _newsResponce = (RetwittedItem[])JsonConvert.DeserializeObject(_data, typeof(RetwittedItem[]));
-                    TwitterEventArgs twEventArgs = new TwitterEventArgs(_newsResponce.ToList());
+                    var data = response.GetResponseText();
+                    var newsResponce = (RetwittedItem[])JsonConvert.DeserializeObject(data, typeof(RetwittedItem[]));
+                    var twEventArgs = new TwitterEventArgs(newsResponce.ToList());
+
                     ResponseFeedsCompleted?.Invoke(this, twEventArgs);
                 }
                 else
                 {
-                    popUp.ShowMessageNotResponse();
+                    popUpMessageService.ShowMessageNotResponse();
                 }
             }
             else
             {
-                popUp.ShowMessageNotAuth();
+                popUpMessageService.ShowMessageNotAuth();
 			}
         }
     }

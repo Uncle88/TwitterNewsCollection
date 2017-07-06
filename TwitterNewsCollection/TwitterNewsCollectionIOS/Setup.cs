@@ -29,8 +29,8 @@ namespace TwitterNewsCollectionIOS
         protected override void InitializePlatformServices()
         {
 			base.InitializePlatformServices();
-            Mvx.RegisterSingleton<INativeUI>(new IosNativeUIService());
-			Mvx.RegisterSingleton<IPopUpMessage>(new PopUpMessage());
+            Mvx.RegisterSingleton<INativeUIService>(new IosNativeUIService());
+			Mvx.RegisterSingleton<IPopUpMessageService>(new PopUpMessageService());
         }
     }
 }

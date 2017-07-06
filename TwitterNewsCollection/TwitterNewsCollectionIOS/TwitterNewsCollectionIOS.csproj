@@ -139,10 +139,10 @@
     <Folder Include="Resources\" />
     <Folder Include="Views\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\UIService\" />
+    <Folder Include="Services\IosUI\" />
     <Folder Include="Views\Cell\" />
     <Folder Include="DataSourse\" />
-    <Folder Include="Services\IosErrorMessageService\" />
+    <Folder Include="Services\IosErrorMessage\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -158,7 +158,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Services\UIService\IosNativeUIService.cs" />
+    <Compile Include="Services\IosUI\IosNativeUIService.cs" />
     <Compile Include="Views\CollectionView.cs" />
     <Compile Include="Views\CollectionView.designer.cs">
       <DependentUpon>CollectionView.cs</DependentUpon>
@@ -168,7 +168,7 @@
       <DependentUpon>CollectionViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSourse\ListDelegateFlowLayout.cs" />
-    <Compile Include="Services\IosErrorMessageService\PopUpMessage.cs" />
+    <Compile Include="Services\IosErrorMessage\PopUpMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TwitterNewsCollection\TwitterNewsCollection.csproj">

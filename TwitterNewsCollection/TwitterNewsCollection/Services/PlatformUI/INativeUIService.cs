@@ -2,9 +2,9 @@
 
 namespace TwitterNewsCollection.Services.PlatformUI
 {
-    public interface INativeUI
+    public interface INativeUIService
     {
         void RejectView();
-        void GetNativeUI(OAuth1Authenticator auth);
-    }
+        void GetNativeUI(OAuth1Authenticator auth);//rename GetNativeUI
+	}
 }
