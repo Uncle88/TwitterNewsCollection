@@ -3,12 +3,12 @@ using System.Reflection;
 using Android.Content;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Platform;
-using MvvmCross.Droid.Shared.Presenter;
-using MvvmCross.Droid.Views;
 using MvvmCross.Platform;
 using TwitterNewsCollection;
-using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Services.ErrorMessageService;
+using TwitterNewsCollection.Services.PlatformUI;
 using TwitterNewsCollectionAndroid.Services.AuthService;
+using TwitterNewsCollectionAndroid.Services.ErrorMessageService;
 
 namespace TwitterNewsCollectionAndroid
 {
@@ -31,7 +31,8 @@ namespace TwitterNewsCollectionAndroid
 
 		protected override void InitializePlatformServices()
 		{
-			Mvx.RegisterSingleton<IAuthenticationService>(new AndroidAuthenticationService());
+			Mvx.RegisterSingleton<INativeUIService>(new AndroidNativeUIService());
+			Mvx.RegisterSingleton<IErrorMessageService>(new AndroidErrorMessageService());
 			base.InitializePlatformServices();
 		}
 	}

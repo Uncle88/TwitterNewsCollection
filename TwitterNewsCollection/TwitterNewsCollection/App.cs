@@ -1,5 +1,10 @@
 ﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
+using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Services.Authentication;
+using TwitterNewsCollection.Services.ErrorMessageService;
+using TwitterNewsCollection.Services.PlatformUI;
 
 namespace TwitterNewsCollection
 {
@@ -7,10 +12,15 @@ namespace TwitterNewsCollection
     {
         public override void Initialize()
         {
+            var nativeUIService = Mvx.Resolve<INativeUIService>();
+            var popUpMessageService = Mvx.Resolve<IErrorMessageService>();
+            Mvx.RegisterSingleton<IAuthenticationService>(new AuthenticationService(popUpMessageService,nativeUIService));
+
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
+            
             RegisterAppStart<ViewModels.ListViewModel>();
         }
     }

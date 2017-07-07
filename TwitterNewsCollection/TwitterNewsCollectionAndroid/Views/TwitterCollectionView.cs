@@ -7,7 +7,7 @@ using TwitterNewsCollection.ViewModels;
 
 namespace TwitterNewsCollectionAndroid.Views
 {
-    [Activity(Label = "TwitterNews", MainLauncher = true , Icon = "@drawable/twitterLabel")]
+    [Activity(Label = "TwitterNews", MainLauncher = true , Icon = "@drawable/twitterIcon")]
 	public class TwitterCollectionView : MvxActivity
 	{
         MvxRecyclerView List;
@@ -22,6 +22,7 @@ namespace TwitterNewsCollectionAndroid.Views
         {
             base.OnCreate(bundle);
 
+            //TODO: move to axml
 			List = this.FindViewById<MvxRecyclerView>(Resource.Id.myView);
 			List.ItemTemplateId = Resource.Layout.listItemTwitterFeeds;
         }

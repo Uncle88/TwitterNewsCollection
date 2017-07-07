@@ -1,11 +1,12 @@
 ﻿using System;
 using TwitterNewsCollection.Helpers;
+using Xamarin.Auth;
 
 namespace TwitterNewsCollection.Authentication
 {
     public interface IAuthenticationService
     {
-        void LoginToTwitter();
+        OAuth1Authenticator LoginToTwitter();
         event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
     }
 }

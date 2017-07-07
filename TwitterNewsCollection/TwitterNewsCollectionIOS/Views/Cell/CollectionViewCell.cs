@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
