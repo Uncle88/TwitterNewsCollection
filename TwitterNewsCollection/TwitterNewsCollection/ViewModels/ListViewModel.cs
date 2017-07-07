@@ -13,7 +13,7 @@ namespace TwitterNewsCollection.ViewModels
         {
             authService.ResponseFeedsCompleted += OnResponseFeedsCompleted;
             var oauth = authService.LoginToTwitter();
-            uiService.GetNativeUI(oauth);
+            uiService.PlatformNativeUI(oauth);
         }
 
 		public List<RetwittedItem> TwitterFeeds { get; private set; }
