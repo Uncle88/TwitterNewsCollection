@@ -32,7 +32,7 @@ namespace TwitterNewsCollectionAndroid
 		protected override void InitializePlatformServices()
 		{
 			Mvx.RegisterSingleton<INativeUIService>(new AndroidNativeUIService());
-			Mvx.RegisterSingleton<IPopUpMessageService>(new PopUpMessageService());
+			Mvx.RegisterSingleton<IErrorMessageService>(new AndroidErrorMessageService());
 			base.InitializePlatformServices();
 		}
 	}

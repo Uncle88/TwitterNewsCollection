@@ -1,6 +1,6 @@
 ﻿namespace TwitterNewsCollection.Services.ErrorMessageService
 {
-    public interface IPopUpMessageService
+    public interface IErrorMessageService
     {
         void ShowMessageNotAuth();
         void ShowMessageNotResponse();

@@ -13,8 +13,6 @@ namespace TwitterNewsCollectionAndroid.Services.AuthService
 			Application.Context.StartActivity(intent);
 		}
 
-        public void RejectView()
-        {
-        }
+        public void RejectView(){}
     }
 }

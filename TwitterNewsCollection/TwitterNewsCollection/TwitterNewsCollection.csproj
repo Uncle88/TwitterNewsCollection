@@ -36,8 +36,8 @@
     <Compile Include="Helpers\TwitterEventArgs.cs" />
     <Compile Include="Models\RetwittedItem.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
-    <Compile Include="Services\PlatformUI\INativeUIService.cs" />
-    <Compile Include="Services\ErrorMessage\IPopUpMessageService.cs" />
+    <Compile Include="Services\NativeUI\INativeUIService.cs" />
+    <Compile Include="Services\ErrorMessage\IErrorMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
@@ -86,7 +86,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Services\PlatformUI\" />
+    <Folder Include="Services\NativeUI\" />
     <Folder Include="Services\ErrorMessage\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

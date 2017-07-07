@@ -3,7 +3,7 @@ using UIKit;
 
 namespace TwitterNewsCollectionIOS.Services.IosErrorMessageService
 {
-    public class PopUpMessageService : IPopUpMessageService
+    public class iOSErrorMessageService : IErrorMessageService
     {
         private const string ErrorResponseMessage = "response not received";
         private const string ErrorAuthMessage = "Not Authenticated";

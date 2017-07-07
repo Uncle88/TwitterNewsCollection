@@ -5,7 +5,7 @@ using Xamarin.Auth;
 
 namespace TwitterNewsCollectionIOS
 {
-    public class IosNativeUIService : INativeUIService
+    public class iOSNativeUIService : INativeUIService
     {
         private UIViewController AuthView;
   

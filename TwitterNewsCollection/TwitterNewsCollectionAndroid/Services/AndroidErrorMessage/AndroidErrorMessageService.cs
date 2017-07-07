@@ -4,7 +4,7 @@ using TwitterNewsCollection.Services.ErrorMessageService;
 
 namespace TwitterNewsCollectionAndroid.Services.ErrorMessageService
 {
-    public class PopUpMessageService : IPopUpMessageService
+    public class AndroidErrorMessageService : IErrorMessageService
     {
         private const string ErrorResponseMessage = "response not received";
         private const string ErrorAuthMessage = "Not Authenticated";

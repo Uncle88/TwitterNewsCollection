@@ -14,12 +14,13 @@ namespace TwitterNewsCollection.Services.Authentication
     {
         private const string MethodRequest = "GET";
 		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
-        private IPopUpMessageService popUpMessageService;
+        private ErrorMessageService.IErrorMessageService popUpMessageService;
         private INativeUIService nativeUIService;
 
+        //TODO: try delete event and use method instead
         public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
 
-        public AuthenticationService(IPopUpMessageService popUpMes,INativeUIService natUIService )
+        public AuthenticationService(ErrorMessageService.IErrorMessageService popUpMes,INativeUIService natUIService )
         {
             popUpMessageService = popUpMes;
             nativeUIService = natUIService;
