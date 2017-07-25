@@ -1,7 +1,7 @@
 ﻿
-namespace TwitterNewsCollection
+namespace TwitterNewsCollection.Constants
 {
-    public class Constants
+    public class TwitterConstants
     {
         public static readonly string Consumer_KEY = "ZYAaM25koQg2Jdkm1CrSPvCl4";
         public static readonly string Consumer_SECRET = "lgc4bXD3u7AYe9xgwbtgkTincbJR9Ed4oSTJ9H09bMf4RPa9FB";

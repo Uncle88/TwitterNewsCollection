@@ -2,6 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 using TwitterNewsCollection.Authentication;
+using TwitterNewsCollection.Constants;
 using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
 using TwitterNewsCollection.Services.ErrorMessageService;
@@ -29,12 +30,12 @@ namespace TwitterNewsCollection.Services.Authentication
         public OAuth1Authenticator LoginToTwitter()
         {
             var auth = new OAuth1Authenticator(
-                Constants.Consumer_KEY,
-                Constants.Consumer_SECRET,
-                new Uri(Constants.TWITTER_REQTOKEN_URL),
-                new Uri(Constants.TWITTER_AUTH),
-                new Uri(Constants.TWITTER_ACCESSTOKEN_URL),
-                new Uri(Constants.TWITTER_CALLBACK_URL));
+                TwitterConstants.Consumer_KEY,
+                TwitterConstants.Consumer_SECRET,
+                new Uri(TwitterConstants.TWITTER_REQTOKEN_URL),
+                new Uri(TwitterConstants.TWITTER_AUTH),
+                new Uri(TwitterConstants.TWITTER_ACCESSTOKEN_URL),
+                new Uri(TwitterConstants.TWITTER_CALLBACK_URL));
 
             auth.Completed += OnAuthCompleted;
 
@@ -58,12 +59,12 @@ namespace TwitterNewsCollection.Services.Authentication
                 }
                 else
                 {
-                    popUpMessageService.ShowMessageNotResponse();
+                    popUpMessageService.ShowErrorMessage(ErrorMessages.ErrorResponseMessage);
                 }
             }
             else
             {
-                popUpMessageService.ShowMessageNotAuth();
+                popUpMessageService.ShowErrorMessage(ErrorMessages.ErrorAuthMessage);
 			}
         }
     }
