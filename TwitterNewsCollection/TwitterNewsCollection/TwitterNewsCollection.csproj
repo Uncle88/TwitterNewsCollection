@@ -39,6 +39,7 @@
     <Compile Include="Services\ErrorMessage\IErrorMessageService.cs" />
     <Compile Include="Constants\ErrorMessages.cs" />
     <Compile Include="Constants\TwitterConstants.cs" />
+    <Compile Include="Models\TwitterNewsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLCrypto">
