@@ -13,8 +13,6 @@ namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private const string MethodRequest = "GET";
-		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
         private IErrorMessageService popUpMessageService;
         private INativeUIService nativeUIService;
 
@@ -47,7 +45,7 @@ namespace TwitterNewsCollection.Services.Authentication
             nativeUIService.RejectView();
             if (eventArgs.IsAuthenticated)
             {
-                var request = new OAuth1Request(MethodRequest, urlRequest, null, eventArgs.Account);
+                var request = new OAuth1Request(TwitterConstants.MethodRequest, TwitterConstants.urlRequest, null, eventArgs.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
