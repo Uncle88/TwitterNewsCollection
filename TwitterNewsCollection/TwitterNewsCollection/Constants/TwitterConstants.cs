@@ -16,7 +16,7 @@ namespace TwitterNewsCollection.Constants
         public static readonly string TWITTER_ACCESS_TOKEN_Secret = "4j99v98ZQugQCQZfitpjBtaqVPcvcM7fwoaqntsJM75MR";
 
 		public const string MethodRequest = "GET";
-        public static readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
+        public const string urlRequest = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 
 		public const string ErrorTitle = "Error";
 		public const string ButtonText = "OK";
