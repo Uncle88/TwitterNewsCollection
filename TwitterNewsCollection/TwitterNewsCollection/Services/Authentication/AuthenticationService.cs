@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TwitterNewsCollection.Authentication;
 using TwitterNewsCollection.Constants;
-using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
 using TwitterNewsCollection.Services.ErrorMessageService;
 using TwitterNewsCollection.Services.PlatformUI;
@@ -26,7 +25,7 @@ namespace TwitterNewsCollection.Services.Authentication
 
         public Task<Account> LoginToTwitter()
         {
-            var tcs = new TaskCompletionSource<Account>();
+            var taskCompletionSource = new TaskCompletionSource<Account>();
 
             var auth = CreateAuthenticator();
             nativeUIService.PlatformNativeUI(auth);
@@ -43,10 +42,10 @@ namespace TwitterNewsCollection.Services.Authentication
                     popUpMessageService.ShowErrorMessage(ErrorMessages.ErrorAuthMessage);
                 }
 
-                tcs.SetResult(userAccount);
+                taskCompletionSource.SetResult(userAccount);
             };
 
-            return tcs.Task;
+            return taskCompletionSource.Task;
         }
 
         public async Task<List<RetwittedItem>> GetTwitterFeeds(Account userAccount)

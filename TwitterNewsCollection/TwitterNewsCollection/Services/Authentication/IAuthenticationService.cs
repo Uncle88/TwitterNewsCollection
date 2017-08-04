@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TwitterNewsCollection.Helpers;
 using TwitterNewsCollection.Models;
 using Xamarin.Auth;
 
@@ -11,6 +9,5 @@ namespace TwitterNewsCollection.Authentication
     {
         Task<Account> LoginToTwitter();
         Task<List<RetwittedItem>> GetTwitterFeeds(Account userAccount);
-        //Task<List<RetwittedItem>> GetTwitterFeeds(AuthenticatorCompletedEventArgs eventArgs);
     }
 }
