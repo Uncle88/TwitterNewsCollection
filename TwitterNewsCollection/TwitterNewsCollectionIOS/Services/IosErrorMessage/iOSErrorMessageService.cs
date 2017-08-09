@@ -1,5 +1,4 @@
-﻿using System;
-using TwitterNewsCollection.Constants;
+﻿using TwitterNewsCollection.Constants;
 using TwitterNewsCollection.Services.ErrorMessageService;
 using UIKit;
 

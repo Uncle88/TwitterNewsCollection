@@ -22,7 +22,6 @@ namespace TwitterNewsCollectionAndroid.Views
         {
             base.OnCreate(bundle);
 
-            //TODO: move to axml
 			List = this.FindViewById<MvxRecyclerView>(Resource.Id.myView);
 			List.ItemTemplateId = Resource.Layout.listItemTwitterFeeds;
         }
