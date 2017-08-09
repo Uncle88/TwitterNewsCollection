@@ -2,7 +2,6 @@
 {
     public interface IErrorMessageService
     {
-        void ShowMessageNotAuth();
-        void ShowMessageNotResponse();
+        void ShowErrorMessage(string message);
     }
 }

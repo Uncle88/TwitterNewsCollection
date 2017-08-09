@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TwitterNewsCollection.Authentication;
-using TwitterNewsCollection.Helpers;
+using TwitterNewsCollection.Constants;
 using TwitterNewsCollection.Models;
 using TwitterNewsCollection.Services.ErrorMessageService;
 using TwitterNewsCollection.Services.PlatformUI;
@@ -12,13 +14,8 @@ namespace TwitterNewsCollection.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private const string MethodRequest = "GET";
-		private readonly Uri urlRequest = new Uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
         private IErrorMessageService popUpMessageService;
         private INativeUIService nativeUIService;
-
-        //TODO: try delete event and use method instead
-        public event EventHandler<TwitterEventArgs> ResponseFeedsCompleted;
 
         public AuthenticationService(IErrorMessageService popUpMes,INativeUIService natUIService )
         {
@@ -26,45 +23,59 @@ namespace TwitterNewsCollection.Services.Authentication
             nativeUIService = natUIService;
         }
 
-        public OAuth1Authenticator LoginToTwitter()
+        public Task<Account> LoginToTwitter()
         {
-            var auth = new OAuth1Authenticator(
-                Constants.Consumer_KEY,
-                Constants.Consumer_SECRET,
-                new Uri(Constants.TWITTER_REQTOKEN_URL),
-                new Uri(Constants.TWITTER_AUTH),
-                new Uri(Constants.TWITTER_ACCESSTOKEN_URL),
-                new Uri(Constants.TWITTER_CALLBACK_URL));
+            var taskCompletionSource = new TaskCompletionSource<Account>();
 
-            auth.Completed += OnAuthCompleted;
+            var auth = CreateAuthenticator();
+            nativeUIService.PlatformNativeUI(auth);
 
-            return auth;
-        }
-
-        private async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs eventArgs)
-        {
-            nativeUIService.RejectView();
-            if (eventArgs.IsAuthenticated)
+            auth.Completed += (sender, authCompleteArgs) =>
             {
-                var request = new OAuth1Request(MethodRequest, urlRequest, null, eventArgs.Account);
-                var response = await request.GetResponseAsync();
-                if (response != null)
+                Account userAccount = null;
+                if (authCompleteArgs.IsAuthenticated)
                 {
-                    var data = response.GetResponseText();
-                    var newsResponce = (RetwittedItem[])JsonConvert.DeserializeObject(data, typeof(RetwittedItem[]));
-                    var twEventArgs = new TwitterEventArgs(newsResponce.ToList());
-
-                    ResponseFeedsCompleted?.Invoke(this, twEventArgs);
+                    userAccount = authCompleteArgs.Account;
                 }
                 else
                 {
-                    popUpMessageService.ShowMessageNotResponse();
+                    popUpMessageService.ShowErrorMessage(ErrorMessages.ErrorAuthMessage);
                 }
+
+                taskCompletionSource.SetResult(userAccount);
+            };
+
+            return taskCompletionSource.Task;
+        }
+
+        public async Task<List<RetwittedItem>> GetTwitterFeeds(Account userAccount)
+        {
+			nativeUIService.RejectView();
+
+            var request = new OAuth1Request(TwitterConstants.MethodRequest, new Uri(TwitterConstants.urlRequest), null, userAccount);
+            var response = await request.GetResponseAsync();
+            if (response != null)
+            {
+                var data = response.GetResponseText();
+                var newsResponce = (RetwittedItem[])JsonConvert.DeserializeObject(data, typeof(RetwittedItem[]));
+                return newsResponce.ToList();
             }
             else
             {
-                popUpMessageService.ShowMessageNotAuth();
-			}
+                popUpMessageService.ShowErrorMessage(ErrorMessages.ErrorResponseMessage);
+                return null;
+            }
         }
+
+        private static OAuth1Authenticator CreateAuthenticator()
+		{
+			return new OAuth1Authenticator(
+				TwitterConstants.Consumer_KEY,
+				TwitterConstants.Consumer_SECRET,
+				new Uri(TwitterConstants.TWITTER_REQTOKEN_URL),
+				new Uri(TwitterConstants.TWITTER_AUTH),
+				new Uri(TwitterConstants.TWITTER_ACCESSTOKEN_URL),
+				new Uri(TwitterConstants.TWITTER_CALLBACK_URL));
+		}
     }
 }
